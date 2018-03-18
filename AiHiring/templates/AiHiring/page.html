@@ -1,0 +1,1265 @@
+<!DOCTYPE HTML>
+<html onmouseover="buttonON()">
+
+<head>
+  {% load staticfiles %}
+  <title>Ai Based Hiring</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/common.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/multiple-select.css'%}" />
+
+    <script src="{% static 'personal/js/jquery.js'%}"></script>
+    <script src="{% static 'personal/js/multiple-select.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link rel="icon" href="{% static 'personal/images/databytes.jpg'%}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<style>
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.checkbox {
+  display: none;
+}
+
+.checkbox + label {
+  display: inline-block;
+  position: relative;
+  width: 100px;
+  height: 50px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(0, #fd1a15), color-stop(45%, #fc8b34), color-stop(55%, #7fd03e), to(#007177)) 0 0;
+  background: linear-gradient(to right, #fd1a15 0, #fc8b34 45%, #7fd03e 55%, #007177 100%) 0 0;
+  background-size: 650px 100%;
+  border-radius: 70px;
+  padding: 7px;
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  -webkit-box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2) inset;
+          box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2) inset;
+}
+.checkbox + label:before {
+  content: "Off";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  border-radius: 100%;
+  background: #fff;
+  text-align: center;
+  line-height: 40px;
+  font-family: "Cabin", sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fd1a15;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  -webkit-transition: left 500ms ease, color 500ms ease, -webkit-transform 150ms ease;
+  transition: left 500ms ease, color 500ms ease, -webkit-transform 150ms ease;
+  transition: left 500ms ease, color 500ms ease, transform 150ms ease;
+  transition: left 500ms ease, color 500ms ease, transform 150ms ease, -webkit-transform 150ms ease;
+}
+.checkbox + label:active:before {
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+}
+
+.checkbox:checked + label {
+  background-position-x: -320px;
+}
+.checkbox:checked + label:before {
+  content: "On";
+  color: #007177;
+  left: 55px;
+}
+
+    </style>    
+
+
+
+
+
+<body>
+
+
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <center>
+            <a href="/AiHiring/index.html"><img src="{% static 'personal/images/databytes.jpg'%}" class="brandpic" height="40"></a>
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </center>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/AiHiring/index.html" >Home</a></li>
+                <li><a href="/AiHiring/example.html">Upload</a></li>
+                <li><a href="/AiHiring/page.html">Specify Details</a></li>
+                <li><a href="/AiHiring/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+        <!-- insert the page content here -->\
+<center>   
+        <h1 class='firstheading' style="margin-top: 40px">Choose the fields you want to specify</h1></center> 
+    
+
+
+
+<form method="post" action="/AiHiring/another_page.html" id="jobDetails">
+  
+{% csrf_token %}
+
+<!--
+
+<div class='ctrl'>
+  <div>Work Experience &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+  <div class='ctrl__counter'>
+    <input class='ctrl__counter-input' maxlength='2' type='text' value='0' name="workEXPERIENCE">
+    <div class='ctrl__counter-num'>0</div>
+  </div>
+  <div class='ctrl__button ctrl__button--increment'>+</div>
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript">
+  (function() {
+  'use strict';
+
+  function ctrls() {
+    var _this = this;
+
+    this.counter = 0;
+    this.els = {
+      decrement: document.querySelector('.ctrl__button--decrement'),
+      counter: {
+        container: document.querySelector('.ctrl__counter'),
+        num: document.querySelector('.ctrl__counter-num'),
+        input: document.querySelector('.ctrl__counter-input')
+      },
+      increment: document.querySelector('.ctrl__button--increment')
+    };
+
+    this.decrement = function() {
+      var counter = _this.getCounter();
+      var nextCounter = (_this.counter > 0) ? --counter : counter;
+      _this.setCounter(nextCounter);
+    };
+
+    this.increment = function() {
+      var counter = _this.getCounter();
+      var nextCounter = (counter < 100) ? ++counter : counter;
+      _this.setCounter(nextCounter);
+    };
+
+    this.getCounter = function() {
+      return _this.counter;
+    };
+
+    this.setCounter = function(nextCounter) {
+      _this.counter = nextCounter;
+    };
+
+    this.debounce = function(callback) {
+      setTimeout(callback, 100);
+    };
+
+    this.render = function(hideClassName, visibleClassName) {
+      _this.els.counter.num.classList.add(hideClassName);
+
+      setTimeout(function() {
+        _this.els.counter.num.innerText = _this.getCounter();
+        _this.els.counter.input.value = _this.getCounter();
+        _this.els.counter.num.classList.add(visibleClassName);
+      }, 100);
+
+      setTimeout(function() {
+        _this.els.counter.num.classList.remove(hideClassName);
+        _this.els.counter.num.classList.remove(visibleClassName);
+      }, 1100);
+    };
+
+    this.ready = function() {
+      _this.els.decrement.addEventListener('click', function() {
+        _this.debounce(function() {
+          _this.decrement();
+          _this.render('is-decrement-hide', 'is-decrement-visible');
+        });
+      });
+
+      _this.els.increment.addEventListener('click', function() {
+        _this.debounce(function() {
+          _this.increment();
+          _this.render('is-increment-hide', 'is-increment-visible');
+        });
+      });
+
+      _this.els.counter.input.addEventListener('input', function(e) {
+        var parseValue = parseInt(e.target.value);
+        if (!isNaN(parseValue) && parseValue >= 0) {
+          _this.setCounter(parseValue);
+          _this.render();
+        }
+      });
+
+      _this.els.counter.input.addEventListener('focus', function(e) {
+        _this.els.counter.container.classList.add('is-input');
+      });
+
+      _this.els.counter.input.addEventListener('blur', function(e) {
+        _this.els.counter.container.classList.remove('is-input');
+        _this.render();
+      });
+    };
+  };
+
+  // init
+  var controls = new ctrls();
+  document.addEventListener('DOMContentLoaded', controls.ready);
+})();
+</script>
+
+
+
+
+
+-->
+
+
+<!--
+
+<div>
+
+
+fields you want...   &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+<div class="my">
+    
+<select id='testSelect0'  multiple name="jobLOCATION" onclick="myFunct()">
+  <option value='1' onclick="myFunct()" id="loc">Location</option>
+  <option value='2' onclick="myFunct()" id="ski">Skills</option>
+  <option value='3' onclick="myFunct()" id="com">Company</option>
+  <option value='4' onclick="myFunct()" id="uni">University</option>
+  <option value='5' onclick="myFunct()" id="deg">Degree</option>
+  <option value='6' onclick="myFunct()" id="maj">Major</option>
+</select>
+
+<script>
+  document.multiselect('#testSelect0');
+
+  function myFunct(){
+    if (document.getElementById("loc").checked){
+        document.getElementById("hideLOC").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+      console.log("hehehe");
+    }
+    else{
+      document.getElementById("hideLOC").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+
+    if (document.getElementById("ski").checked){
+        document.getElementById("hideSKI").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+    }
+    else{
+      document.getElementById("hideSKI").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+
+    if (document.getElementById("com").checked){
+        document.getElementById("hideCOM").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+    }
+    else{
+      document.getElementById("hideCOM").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+
+    if (document.getElementById("uni").checked){
+        document.getElementById("hideUNI").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+    }
+    else{
+      document.getElementById("hideUNI").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+
+    if (document.getElementById("deg").checked){
+        document.getElementById("hideDEG").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+    }
+    else{
+      document.getElementById("hideDEF").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+
+    if (document.getElementById("maj").checked){
+        document.getElementById("hideMAJ").style.display = "";
+      console.log(document.getElementById("hideLOC").value);
+    }
+    else{
+      document.getElementById("hideMAJ").style.display = "none";
+      console.log(document.getElementById("hideLOC").value);
+    }
+
+  }
+
+
+
+
+
+
+</script>
+</div>
+
+
+
+</div>
+
+
+-->
+<div class="container-fluid" style="padding: 30px"> 
+<div class="row">
+  
+<div class="col-sm-4">
+<center>     
+<div><h4 id="colLOC" class="secheading" style='color:dodgerblue; opacity:.90  '>Location</h4></div>
+<input class="checkbox" type="checkbox" type="checkbox"  name="wantLOC" value="wantLOC" id="wantLOC" onclick="myFunct1()"/>    
+<label for="wantLOC"></label>    
+    </center>  
+</div>
+
+<div class="col-sm-4">
+<center>    
+<div><h4 id="colSKI"class="secheading" style='color:dodgerblue; opacity:.90 '>Skills</h4></div>
+<input class="checkbox" type="checkbox" name="wantSKI" value="wantSKI" id="wantSKI" onclick="myFunct2()"/>        
+<label for="wantSKI"></label>
+    </center>    
+</div>
+
+<div class="col-sm-4"> 
+<center>    
+<div><h4 id="colCOM" class="secheading" style='color:dodgerblue; opacity:.90 '>Company</h4></div>
+<input class="checkbox" type="checkbox" name="wantCOM" value="wantCOM" id="wantCOM" onclick="myFunct3()"/>        
+<label for="wantCOM"></label>
+    </center>    
+</div>  
+</div>
+     
+<div class='row'>
+ 
+<div class="col-sm-4">
+
+</div>    
+</div>
+</div>    
+
+<script type="text/javascript">
+  function myFunct1(){
+    if (document.getElementById("wantLOC").checked){
+      document.getElementById("hideLOC").style.display = "";
+
+      //document.getElementById("cutoffJL").value = "";
+      document.getElementById("weightJL").value = "";
+      document.getElementById("colLOC").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideLOC").style.display = "none";
+      //document.getElementById("cutoffJL").value = "";
+
+      document.getElementById("weightJL").value = "0";
+
+      document.getElementById("colLOC").style.color = "dodgerblue";
+
+    }
+  }
+  function myFunct2(){
+
+    if (document.getElementById("wantSKI").checked){
+      document.getElementById("hideSKI").style.display = "";
+
+      //document.getElementById("cutoffJS").value = "";
+      document.getElementById("weightJS").value = "";
+      document.getElementById("colSKI").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideSKI").style.display = "none";
+      //document.getElementById("cutoffJS").value = "";
+      document.getElementById("weightJS").value = "0";
+      document.getElementById("colSKI").style.color = "dodgerblue";
+
+    }
+  }
+  function myFunct3(){
+
+
+    if (document.getElementById("wantCOM").checked){
+      document.getElementById("hideCOM").style.display = "";
+
+      //document.getElementById("cutoffCOMP").value = "";
+      document.getElementById("weightCOMP").value = "";
+      document.getElementById("colCOM").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideCOM").style.display = "none";
+      //document.getElementById("cutoffCOMP").value = "";
+
+      document.getElementById("weightCOMP").value = "0";
+      document.getElementById("colCOM").style.color ="dodgerblue";
+
+    }
+
+}
+function myFunct4(){
+    if (document.getElementById("wantUNI").checked){
+      document.getElementById("hideUNI").style.display = "";
+
+      //document.getElementById("cutoffUNIV").value = "";
+      document.getElementById("weightUNIV").value = "";
+      document.getElementById("colUNI").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideUNI").style.display = "none";
+      //document.getElementById("cutoffUNIV").value = "";
+      document.getElementById("weightUNIV").value = "0";
+      document.getElementById("colUNI").style.color = "dodgerblue";
+
+    }
+}
+function myFunct5(){
+    if (document.getElementById("wantDEG").checked){
+      document.getElementById("hideDEG").style.display = "";
+
+      //document.getElementById("cutoffDEG").value = "";
+      document.getElementById("weightDEG").value = "";
+      document.getElementById("colDEG").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideDEG").style.display = "none";
+      //document.getElementById("cutoffDEG").value = "";
+      document.getElementById("weightDEG").value = "0";
+
+      document.getElementById("colDEG").style.color = "dodgerblue";
+      
+
+    }
+}
+function myFunct6(){
+    if (document.getElementById("wantMAJ").checked){
+      document.getElementById("hideMAJ").style.display = "";
+
+      //document.getElementById("cutoffMAJ").value = "";
+      document.getElementById("weightMAJ").value = "";
+      document.getElementById("colMAJ").style.color = "dodgerblue";
+
+    }
+    else {
+      document.getElementById("hideMAJ").style.display = "none";
+      //document.getElementById("cutoffMAJ").value = "";
+      document.getElementById("weightMAJ").value = "0";
+      
+      document.getElementById("colMAJ").style.color = "dodgerblue";
+
+    }
+  }
+
+</script>
+<div class="container-fluid">
+<div  id="hideLOC" style="display: none;">
+<div class='row'>
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>Job Location</h4></div>
+    
+</div>
+</center>
+    
+<div class="col-sm-4">
+     
+<div class="form-group" style="margin-left: 35%;">   
+  
+<select id="testSelect1" multiple name="jobLOCATION">
+            <option value="" disabled selected>Locations</option>
+            <option value="Kolkata" selected>Kolkata</option>
+            <option value="Indore" selected>Indore</option>
+            <option value="Banglore" selected>Banglore</option>
+            <option value="Mumbai" selected>Mumbai</option>
+            <option value="Chennai" selected>Chennai</option>
+        </select>
+        <input  type="checkbox" onclick="unhideOtherLOC()" name="otherLOC" value="otherLOC" id="otherLOC">Other
+    <div style="display: none; padding-top: 10px" name="hideOtherLOC" id="hideOtherLOC">
+<input style="border-radius: 10px"id="refreshInputLOC" type="text" />
+<button style="margin: 4%; border-radius: 20px"class="btn-sm btn-success" type="button" id="refreshAddLOC">Add</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#refreshInputLOC').bind('keypress', testInput);
+</script>
+</div>
+<script type="text/javascript">
+  function unhideOtherLOC(){
+    if(document.getElementById('otherLOC').checked){
+    document.getElementById('hideOtherLOC').style.display = "";
+    document.getElementById('refreshInputLOC').required = true;
+  }
+  else{
+   document.getElementById('hideOtherLOC').style.display = "none";
+  document.getElementById('refreshInputLOC').required = false;
+  }
+     
+  }
+</script>
+</div>    
+    </div>   
+
+
+<center>
+<div class='col-sm-4'>
+
+  <!--<input type="text" name="cutoffJL" id="cutoffJL" placeholder="required % match" style="width: 150px;">
+    &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;-->
+  <input type="text" name="weightJL" id="weightJL" placeholder="weightage (0-100)" style="width: 150px; border-radius: 10px">
+</div>
+</center>
+</div>
+    </div>
+
+
+<div class='row'>
+<div  id="hideSKI" style="display: none;">
+
+
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>Job Skills</h4></div>
+    
+</div>
+</center>    
+<div class="col-sm-4">
+    
+<div class="form-group" style="margin-left: 35%">   
+  
+
+<select id="testSelect2" multiple name="jobSKILLS">
+            <option value="" disabled selected>Job Skills</option>
+            <option value="Machine Learning" selected>Machine Learning</option>
+            <option value="C" selected>C</option>
+            <option value="Java" selected>Java</option>
+            <option value="Python" selected>Python</option>
+            <option value="Oracle11g" selected>Oracle11g</option>
+        </select>
+        <input  type="checkbox" onclick="unhideOtherSKI()" name="otherSKI" value="otherSKI" id="otherSKI">Other
+<div style="display: none; padding-top:  10px" name="hideOtherSKI" id="hideOtherSKI">
+<input style="border-radius: 10px"id="refreshInputSKI" type="text" />
+<button class="btn-sm btn-success" type="button" id="refreshAddSKI" style="border-radius: 20px;margin: 4%">Add</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#refreshInputSKI').bind('keypress', testInput);
+</script>
+</div>    
+<script type="text/javascript">
+  function unhideOtherSKI(){
+    if(document.getElementById('otherSKI').checked){
+    document.getElementById('hideOtherSKI').style.display = "";
+    document.getElementById('refreshInputSKI').required = true;
+  }
+  else{
+   document.getElementById('hideOtherSKI').style.display = "none";
+  document.getElementById('refreshInputSKI').required = false;
+  }
+     
+  }
+</script>
+</div>    
+    </div>     
+
+<center>  
+<div class="col-sm-4">
+  <!-----<input type="text" name="cutoffJS"  id="cutoffJS" placeholder="required % match" style="width: 150px;">
+      &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;---->
+  <input type="number" min="0" max="100" name="weightJS" id="weightJS" placeholder="weightage (0-100)" style="width: 150px; border-radius: 10px">
+
+</div>
+</center>  
+</div>
+</div>
+
+
+
+
+<div  id="hideCOM" style="display: none;">
+
+<div class='row'>
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>Company</h4></div>
+    
+</div>
+</center> 
+<div class="col-sm-4">   
+<div class="form-group" style="margin-left: 35%">
+
+
+<select id="testSelect3" multiple name="companies">
+            <option value="" disabled selected>Company</option>
+            <option value="Cognizant" selected>Cognizant</option>
+            <option value="Infosys" selected>Infosys</option>
+            <option value="Wipro" selected>Wipro</option>
+            <option value="Google" selected>Google</option>
+            <option value="Microsoft" selected>Microsoft</option>
+        </select>
+        <input  type="checkbox" onclick="unhideOtherCOMP()" name="otherCOMP" value="otherCOMP" id="otherCOMP">Other
+<div style="display: none; padding-top: 10px" name="hideOtherCOMP" id="hideOtherCOMP">
+<input style="border-radius: 10px"id="refreshInputCOMP" type="text" />
+<button style="border-radius: 10px; margin: 4%"class="btn-sm btn-success" type="button" id="refreshAddCOMP">Add</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+  function testInput(event) {
+   var value = String.fromCharCode(event.which);
+   var pattern = new RegExp(/[a-zåäö ]/i);
+   return pattern.test(value);
+}
+
+$('#refreshInputCOMP').bind('keypress', testInput);
+</script>
+</div>    
+<script type="text/javascript">
+  function unhideOtherCOMP(){
+    if(document.getElementById('otherCOMP').checked){
+    document.getElementById('hideOtherCOMP').style.display = "";
+    document.getElementById('refreshInputCOMP').required = true;
+  }
+  else{
+   document.getElementById('hideOtherCOMP').style.display = "none";
+  document.getElementById('refreshInputCOMP').required = false;
+  }
+     
+  }
+</script>
+
+
+</div> 
+</div>    
+<center>
+  
+<div class='col-sm-4'>
+  <!--------<input type="text" name="cutoffCOMP"  id="cutoffCOMP" placeholder="required % match" style="width: 150px;">
+      &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;------------>
+  <input type="number" min="0" max="100" name="weightCOMP" id="weightCOMP" placeholder="weightage (0-100)" style="width: 150px; border-radius: 10px">
+
+
+</div>
+</center>    
+    
+
+    </div>
+
+    </div>
+
+<div   id="hideUNI" style="display: none;">
+<div class='row'>
+
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>University</h4></div>
+    
+</div>
+</center> 
+
+
+
+<div class='col-sm-4'>    
+<div class="form-group" style="margin-left: 35%">   
+<select id="testSelect4" multiple name="university">
+             <option value="" disabled selected>University</option>
+            <option value="1" selected>Indian Institute of Technology</option>
+            <option value="2" selected>National Institute of Technology</option>
+            <option value="3" selected>West Bengal Institute of Technology</option>
+            <option value="4" selected>Rustamji Institute of Technology</option>
+            <option value="5" selected>Indian Institute of Management</option>
+        </select>
+</div>    
+</div>    
+
+    
+
+<center>    
+<div class="col-sm-4">    
+ <!-- <input type="text" name="cutoffUNIV" id="cutoffUNIV"  placeholder="required % match" style="width: 150px;">
+      &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;-->
+  <input type="text" name="weightUNIV" id="weightUNIV" placeholder="weightage (0-100)" style="width: 150px;">
+
+</div>
+</center>
+</div>
+    </div>    
+
+
+<div   id="hideDEG" style="display: none;">
+<div class='row'>
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>Job Location</h4></div>
+    
+</div>
+</center> 
+<div class="col-sm-4">    
+<div class="form-group"style="margin-left: 35%">   
+<select id="testSelect5" multiple name="degree">
+            <option value="" disabled selected>Degree</option>
+            <option value="1" selected>Phd.</option>
+            <option value="2" selected>Msc.</option>
+            <option value="3" selected>Bsc.</option>
+            <option value="4" selected>B.E.</option>
+            <option value="5" selected>M.tech</option>
+        </select>
+</div>    
+    </div>    
+
+
+<center>    
+<div class='col-sm-4'>    
+  <!-----------<input type="text" name="cutoffDEG"  id="cutoffDEG" placeholder="required % match" style="width: 150px;">
+      &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;------------>
+  <input type="number" min="0" max="100" name="weightDEG" id="weightDEG" placeholder="weightage (0-100)" style="width: 150px;">
+</div>
+</center>
+</div>
+    </div>    
+
+
+
+
+
+
+<div  id="hideMAJ" style="display: none;">
+
+
+<div class='row'>
+
+<center>   
+<div class='col-sm-4'>    
+    <div class="secheading" style='color:dodgerblue; opacity:1.0;'><h4>Major</h4></div>
+    
+</div>
+</center>
+  
+<div class="col-sm-4">    
+<div class="form-group"style="margin-left: 35%">   
+<select id="testSelect6" multiple name="major">
+    <option value="" disabled selected>Major</option>
+            <option value="1" selected>Computer Science Engg</option>
+            <option value="2" selected>Mathematics</option>
+            <option value="3" selected>Physics</option>
+            <option value="4" selected>Chemistry</option>
+            <option value="5" selected>Electrical Engg</option>
+        </select>
+</div>    
+</div> 
+   
+
+
+<center>  
+<div class="col-sm-4">    
+  <!------------<input type="text" name="cutoffMAJ"  id="cutoffMAJ" placeholder="required % match" style="width: 150px;">
+    &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;---------->
+  <input type="number" min="0" max="100" name="weightMAJ" id="weightMAJ" placeholder="weightage (0-100)" style="width: 150px;">
+</div>
+</center>      
+
+</div>
+    </div>
+
+    </div>
+
+    </div>
+
+<div class='row'>
+<center>
+    
+<p><input class="btn btn-primary" style="opacity:1.0 "type="submit" name="detail_submitted" id="detail_submitted" value="Next Step" name="submitDETAILS"  title="sum of weight should be 100...." disabled /></p>
+</center>    
+</div>
+<script type="text/javascript">
+  function buttonON(){
+    var t1 = parseInt(document.getElementById("weightMAJ").value);
+    if (isNaN(t1))
+    {
+      t1=parseInt(0);
+    }
+    var t2 = parseInt(document.getElementById("weightDEG").value);
+    if (isNaN(t2))
+    {
+      t2=parseInt(0);
+    }
+    var t3 = parseInt(document.getElementById("weightUNIV").value);
+    if (isNaN(t3))
+    {
+      t3=parseInt(0);
+    }
+    var t4 = parseInt(document.getElementById("weightCOMP").value);
+    if (isNaN(t4))
+    {
+      t4=parseInt(0);
+    }
+    var t5 = parseInt(document.getElementById("weightJS").value);
+    if (isNaN(t5))
+    {
+      t5=parseInt(0);
+    }
+    var t6 = parseInt(document.getElementById("weightJL").value);
+    if (isNaN(t6))
+    {
+      t6=parseInt(0);
+    }
+    var sum = t1+t2+t3+t4+t5+t6;
+    //console.log(t1);
+    //console.log(t2);
+    //console.log(t3);
+    //console.log(t4);
+    //console.log(t5);
+    //console.log(t6);
+    //console.log(sum)
+    if (sum==100){
+      var temp = document.getElementById("detail_submitted").disabled;
+      if (temp==true){
+        document.getElementById("detail_submitted").disabled = false;
+        document.getElementById("detail_submitted").title = "";
+      }
+    }
+    else{
+      document.getElementById("detail_submitted").disabled = true;
+      document.getElementById("detail_submitted").title = "sum of weight should be 100....";
+    }
+  }
+</script>
+
+
+
+  </form>
+
+
+
+
+<div id="myModal" class="modal">
+<div class="container">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 style="color: red;">Attention</h2>
+    </div>
+    <div class="modal-body" id="popupContent">
+      
+    </div>
+    <div class="modal-footer">
+      <h3 style="color: blue;">Thank You!!!</h3>
+    </div>
+  </div>
+
+</div>
+
+    </div>
+
+
+
+
+
+
+
+      </div>
+    </div>
+   <div id="Contact"class="container-fluid">
+<div class="row ">
+   <footer class="footer-distributed">
+
+      <div  class="footer-left">
+
+        <h3>DataBytes<span>Analytics Pvt Ltd</span></h3>
+
+        <p class="footer-company-name">Databytes Analytics &copy;2017</p>
+      </div>
+
+      <div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+        <div >
+          <i class="fa fa-map-marker"></i>
+                    <p><span>DataBytes Analytics 
+Kolkata, West Bengal, India</span></p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+                    <p>+917980630703,</p>
+                    <p>+919028495030</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:support@company.com">reach@data-bytes.in</a></p>
+                  
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				<div class="footer-icons">
+
+					<a href=https://www.linkedin.com/in/databytes/><i class="fa fa-linkedin"></i></a>
+				</div>
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter"></i></a>
+				</div>
+
+			</div>
+    </footer>   
+       </div>
+<script src="{% static 'personal/js/multiple-select.js'%}"></script>
+<script>
+    $(function() {
+        $('#testSelect1').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        });
+        $("#testSelect1").multipleSelect();
+        $("#refreshAddLOC").click(function() {
+            var $select = $("#testSelect1"),
+                $input = $("#refreshInputLOC"),
+                value = $.trim($input.val()),
+                $opt = $("<option />", {
+                    value: value,
+                    text: value
+                });
+
+            if (!value) {
+                $input.focus();
+                return;
+            }
+            
+            $opt.attr("selected", true);
+            
+            $input.val("");
+           
+            var myOpts = [];
+
+            $('#testSelect1 option').each(function() {
+              myOpts.push($(this).val());
+            });
+
+            
+            console.log(myOpts)
+            console.log(typeof(myOpts));
+            var flag=0;
+            for(i=0;i<myOpts.length;i++)
+            {
+              console.log(myOpts[i]);
+              if(value==myOpts[i])
+              {
+                flag=1;
+                break;
+              }
+              else{
+                flag=0;
+              }
+            }
+            if(flag==1)
+            {
+              console.log("its already there............................")
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("recal");
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              var modal = document.getElementById('myModal');
+              modal.style.display = "block";
+              var popupContent = document.getElementById('popupContent');
+              popupContent.innerHTML = "";
+              popupContent.innerHTML = "<p>The Location you want to Add already exist in our List.</p><p>Please use our filter option to search your Location faster...</p>";
+            }
+            else{
+              console.log("NOOOOOOOOOOOOOOOOOOOt there:::::::::::")
+              $select.append($opt).multipleSelect("refresh");
+            }
+
+            document.getElementById('hideOtherLOC').style.display = "none";
+            document.getElementById('refreshInputLOC').required = false;
+            document.getElementById('otherLOC').checked = false;
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('#testSelect2').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        });
+        $("#testSelect2").multipleSelect();
+        $("#refreshAddSKI").click(function() {
+            var $select = $("#testSelect2"),
+                $input = $("#refreshInputSKI"),
+                value = $.trim($input.val()),
+                $opt = $("<option />", {
+                    value: value,
+                    text: value
+                });
+            if (!value) {
+                $input.focus();
+                return;
+            }
+            
+                $opt.attr("selected", true);
+            
+            $input.val("");
+            //$select.append($opt).multipleSelect("refresh");
+            var myOpts = [];
+
+            $('#testSelect2 option').each(function() {
+              myOpts.push($(this).val());
+            });
+
+            
+            console.log(myOpts)
+            console.log(typeof(myOpts));
+            var flag=0;
+            for(i=0;i<myOpts.length;i++)
+            {
+              console.log(myOpts[i]);
+              if(value==myOpts[i])
+              {
+                flag=1;
+                break;
+              }
+              else{
+                flag=0;
+              }
+            }
+            if(flag==1)
+            {
+              console.log("its already there............................")
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("recal");
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              var modal = document.getElementById('myModal');
+              modal.style.display = "block";
+              var popupContent = document.getElementById('popupContent');
+              popupContent.innerHTML = "";
+              popupContent.innerHTML = "<p>The Skill you want to Add already exist in our List.</p><p>Please use our filter option to search your Location faster...</p>";
+            }
+            else{
+              console.log("NOOOOOOOOOOOOOOOOOOOt there:::::::::::")
+              $select.append($opt).multipleSelect("refresh");
+            }
+
+
+            document.getElementById('hideOtherSKI').style.display = "none";
+            document.getElementById('refreshInputSKI').required = false;
+            document.getElementById('otherSKI').checked = false;
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('#testSelect3').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        })
+        $("#testSelect3").multipleSelect();
+        $("#refreshAddCOMP").click(function() {
+            var $select = $("#testSelect3"),
+                $input = $("#refreshInputCOMP"),
+                value = $.trim($input.val()),
+                $opt = $("<option />", {
+                    value: value,
+                    text: value
+                });
+            if (!value) {
+                $input.focus();
+                return;
+            }
+            
+                $opt.attr("selected", true);
+            
+            $input.val("");
+            //$select.append($opt).multipleSelect("refresh");
+            var myOpts = [];
+
+            $('#testSelect3 option').each(function() {
+              myOpts.push($(this).val());
+            });
+
+            
+            console.log(myOpts)
+            console.log(typeof(myOpts));
+            var flag=0;
+            for(i=0;i<myOpts.length;i++)
+            {
+              console.log(myOpts[i]);
+              if(value==myOpts[i])
+              {
+                flag=1;
+                break;
+              }
+              else{
+                flag=0;
+              }
+            }
+            if(flag==1)
+            {
+              console.log("its already there............................")
+              var modal = document.getElementById('myModal');
+              var btn = document.getElementById("recal");
+              var span = document.getElementsByClassName("close")[0];
+              span.onclick = function() {
+                modal.style.display = "none";
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              }
+              var modal = document.getElementById('myModal');
+              modal.style.display = "block";
+              var popupContent = document.getElementById('popupContent');
+              popupContent.innerHTML = "";
+              popupContent.innerHTML = "<p>The Company you want to Add already exist in our List.</p><p>Please use our filter option to search your Location faster...</p>";
+            }
+            else{
+              console.log("NOOOOOOOOOOOOOOOOOOOt there:::::::::::")
+              $select.append($opt).multipleSelect("refresh");
+            }
+            document.getElementById('hideOtherCOMP').style.display = "none";
+            document.getElementById('refreshInputCOMP').required = false;
+            document.getElementById('otherCOMP').checked = false;
+        });
+    });
+</script>
+
+<script>
+    $(function() {
+        $('#testSelect4').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('#testSelect5').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        });
+    });
+</script>
+<script>
+    $(function() {
+        $('#testSelect6').change(function() {
+            console.log($(this).val());
+        }).multipleSelect({
+            width: '50%',
+            filter:"True"
+        });
+    });
+</script>
+<script src="{% static 'personal/js/multiple-select.js'%}"></script>
+    <script>
+        
+    </script>
+  </div>
+</body>
+</html>

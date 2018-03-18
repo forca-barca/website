@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+  {% load staticfiles %}
+  <title>Ai Based Hiring</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/common.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/multiple-select.css'%}" />
+
+    <script src="{% static 'personal/js/jquery.js'%}"></script>
+    <script src="{% static 'personal/js/multiple-select.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link rel="icon" href="{% static 'personal/images/databytes.jpg'%}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <a href="/AiHiring/index.html"><img src="{% static 'personal/images/databytes.jpg'%}" class="brandpic" height=40/></a>
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+         </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/AiHiring/index.html" >Home</a></li>
+                <li class="selected"><a href="/AiHiring/examples.html">Upload</a></li>
+                <li><a href="/AiHiring/contact.html">Contact Us</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+       
+<center>       
+<div id="Upload" class="container-fluid text-center newmargin1">
+<div class="row">
+<div class="col-sm-12">
+        <!-- insert the page content here -->
+        <form action="/AiHiring/page.html" method="post" name="uploadPG" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form_settings">
+            <h3 class="firstheading">Upload pdf folder of resumes</h3>  
+            <p>
+          
+  <input class='btn btn-primary' type="file" webkitdirectory mozdirectory name="uploadFOLDER" />
+</p>
+<p class="secheading">You can select any directory with multiple files or multiple child directories in it.</p>
+
+<script>
+var inps = document.querySelectorAll('input');
+[].forEach.call(inps, function(inp) {
+  inp.onchange = function(e) {
+    console.log(this.files['length']);
+    var len = this.files['length'];
+    if (len>0){
+      document.getElementById('submitFOLDER').disabled=false;
+      document.getElementById('submitFOLDER').title="";
+
+    }
+    else{
+      document.getElementById('submitFOLDER').disabled=true;
+      document.getElementById('submitFOLDER').title="Please Upload the Proper Folder..."; 
+
+    }
+  };
+});
+</script>
+              
+          </div>
+
+          <input class="btn btn-primary" type="submit" name="submitFOLDER" id="submitFOLDER" value="Next Step" disabled title="Please Upload the Proper Folder..." /></p>
+
+        </form>
+      </div>
+            </div>   
+        </center>
+        </div>        
+<div id="Contact"class="container-fluid">
+<div class="row ">
+   <footer class="footer-distributed">
+
+			<div  class="footer-left">
+
+				<h3>DataBytes<span>Analytics Pvt Ltd</span></h3>
+
+				<p class="footer-company-name">Databytes Analytics &copy;2017</p>
+			</div>
+
+			<div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+				<div >
+					<i class="fa fa-map-marker"></i>
+                    <p><span>DataBytes Analytics 
+Kolkata, West Bengal, India</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+                    <p>+919028495030</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">reach@data-bytes.in</a></p>
+                  
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				<div class="footer-icons">
+
+					<a href=https://www.linkedin.com/in/databytes/><i class="fa fa-linkedin"></i></a>
+				</div>
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter"></i></a>
+				</div>
+
+			</div>
+    </footer>   
+       </div>
+
+        
+    </body>
+</html>
+<script src="{% static 'personal/js/jquery.bootstrap.newsbox.min.js'%}"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $(".demo1").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: true,
+			pauseOnHover:true,
+            direction: 'up',
+            newsTickerInterval: 4000,
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+		
+		$(".demo2").bootstrapNews({
+            newsPerPage: 4,
+            autoplay: true,
+			pauseOnHover: true,
+			navigation: false,
+            direction: 'down',
+            newsTickerInterval: 2500,
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+
+        $("#demo3").bootstrapNews({
+            newsPerPage: 3,
+            autoplay: false,
+            
+            onToDo: function () {
+                //console.log(this);
+            }
+        });
+    });
+</script>
+
+<script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>

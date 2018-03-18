@@ -1,0 +1,2077 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  {% load staticfiles %}
+  <title>Ai Based Hiring</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/common.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/multiple-select.css'%}" />
+
+    <script src="{% static 'personal/js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/multiple-select.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link rel="icon" href="{% static 'personal/images/databytes.jpg'%}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<style>
+
+  
+
+
+  @import url(https://fonts.googleapis.com/css?family=Dosis:700);
+
+.value {
+  border-bottom: 4px dashed #bdc3c7;
+  text-align: center;
+  font-weight: bold;
+  font-size: 6em;
+  height: 100px;
+  line-height: 60px;
+  margin: 40px auto;
+  letter-spacing: -0.07em;
+  text-shadow: white 2px 2px 2px;
+
+}
+
+
+<!-------------------------------------------->
+    *, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.range-slider {
+  margin: 60px 0 0 0%;
+}
+
+.range-slider {
+  width: 100%;
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - (73px));
+  height: 10px;
+  border-radius: 5px;
+  background: #d7dcdf;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.range-slider__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+.range-slider__range::-webkit-slider-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-webkit-slider-thumb {
+  background: #1abc9c;
+}
+.range-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #2c3e50;
+  cursor: pointer;
+  -webkit-transition: background .15s ease-in-out;
+  transition: background .15s ease-in-out;
+}
+.range-slider__range::-moz-range-thumb:hover {
+  background: #1abc9c;
+}
+.range-slider__range:active::-moz-range-thumb {
+  background: #1abc9c;
+}
+
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: 60px;
+  color: #fff;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: #2c3e50;
+  padding: 5px 10px;
+  margin-left: 8px;
+}
+.range-slider__value:after {
+  position: absolute;
+  top: 8px;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 7px solid #2c3e50;
+  border-bottom: 7px solid transparent;
+  content: '';
+}
+
+::-moz-range-track {
+  background: #d7dcdf;
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}
+
+<!----------------------------------------------->  
+
+
+
+
+
+
+
+
+/* -------------------- Select Box Styles: bavotasan.com Method (with special adaptations by ericrasch.com) */
+/* -------------------- Source: http://bavotasan.com/2011/style-select-box-using-only-css/ */
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+/* -------------------- Rounded Corners */
+.rounded {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+/* -------------------- Colors: Background */
+.slate   { background-color: #ddd; }
+.green   { background-color: #1d1d1d; }
+.blue    { background-color: #3b8ec2; }
+.yellow  { background-color: #eec111; }
+.black   { background-color: #000; }
+
+/* -------------------- Colors: Text */
+.slate select   { color: #000; }
+.green select   { color: #fff; }
+.blue select    { color: #fff; }
+.yellow select  { color: #000; }
+.black select   { color: #fff; }
+
+
+/* -------------------- Select Box Styles: danielneumann.com Method */
+/* -------------------- Source: http://danielneumann.com/blog/how-to-style-dropdown-with-css-only/ */
+#mainselection select {
+   border: 0;
+   color: #EEE;
+   background: transparent;
+   font-size: 20px;
+   font-weight: bold;
+   padding: 2px 10px;
+   width: 378px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow:hidden;
+   width:350px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: #58B14C url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+
+/* -------------------- Select Box Styles: stackoverflow.com Method */
+/* -------------------- Source: http://stackoverflow.com/a/5809186 */
+select#soflow, select#soflow-color {
+   -webkit-appearance: button;
+   -webkit-border-radius: 2px;
+   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+   -webkit-padding-end: 20px;
+   -webkit-padding-start: 2px;
+   -webkit-user-select: none;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+   background-position: 97% center;
+   background-repeat: no-repeat;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   margin: 20px;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+select#soflow-color {
+   color: #fff;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#1d1d1d, #1d1d1d 40%, #1d1d1d);
+   background-color: #1d1d1d;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   padding-left: 15px;
+}
+
+
+  
+.mymy{
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.link-button {
+  background: none;
+  border: none;
+  color: dodgerblue;
+  text-decoration:underline
+  cursor: pointer;
+  font-size: 20px;
+  font-family:'Open Sans serif';
+  opacity: .6    
+}
+.link-button:focus {
+  outline: none;
+}
+.link-button:active {
+  color:red;
+}
+
+
+
+#ryt{
+  background: #1d1d1d;
+  float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ext-cross:before, .checkbox__checker:before, .checkbox__cross:before, .checkbox__ok:before, .ext-cross:after, .checkbox__checker:after, .checkbox__cross:after, .checkbox__ok:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  margin: 0 auto;
+  top: 20px;
+  left: 0;
+  right: 0;
+  background-color: #bf1e1e;
+  border-radius: 5px;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+.ext-cross:before, .checkbox__checker:before, .checkbox__cross:before, .checkbox__ok:before {
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.ext-cross:after, .checkbox__checker:after, .checkbox__cross:after, .checkbox__ok:after {
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+.ext-ok:before, .checkbox__toggle:checked + .checkbox__checker:before, .checkbox__ok:before, .ext-ok:after, .checkbox__toggle:checked + .checkbox__checker:after, .checkbox__ok:after {
+  background-color: #18661d;
+}
+.ext-ok:before, .checkbox__toggle:checked + .checkbox__checker:before, .checkbox__ok:before {
+  width: 6px;
+  top: 23px;
+  left: -7px;
+}
+.ext-ok:after, .checkbox__toggle:checked + .checkbox__checker:after, .checkbox__ok:after {
+  width: 12px;
+  left: 5px;
+}
+
+.checkbox {
+  width: 100px;
+  margin: 0 auto 30px auto;
+
+}
+.checkbox__container {
+  display: block;
+  position: relative;
+  height: 42px;
+  cursor: pointer;
+}
+.checkbox__toggle {
+  display: none;
+}
+.checkbox__toggle:checked + .checkbox__checker {
+  left: calc(100% - 43px);
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(360deg);
+}
+.checkbox__checker, .checkbox__cross, .checkbox__ok {
+  display: block;
+  position: absolute;
+  height: 43px;
+  width: 43px;
+  top: -1px;
+  left: 0px;
+  z-index: 1;
+}
+.checkbox__checker {
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+          box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+  -webkit-transition: .3s;
+  transition: .3s;
+  z-index: 2;
+}
+.checkbox__checker:before, .checkbox__checker:after {
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+.checkbox__cross:before, .checkbox__cross:after, .checkbox__ok:before, .checkbox__ok:after {
+  background-color: #ddd;
+}
+.checkbox__ok {
+  left: calc(100% - 43px);
+}
+.checkbox__txt-left, .checkbox__txt-right {
+  display: block;
+  position: absolute;
+  width: 42px;
+  top: 15px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  z-index: 1;
+}
+.checkbox__txt-right {
+  right: 0px;
+}
+.checkbox__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: #18661d;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.my{
+  display: inline-block;
+  margin-left: 30px;
+}
+    .table-responsive{
+        max-height: 300px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tg-list {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tg-list-item {
+  margin: 0 2em;
+}
+
+
+
+.tgl {
+  display: none;
+}
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+  background: none;
+}
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+.tgl + .tgl-btn:before {
+  display: none;
+}
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+
+
+
+
+
+.tgl-flip + .tgl-btn {
+  padding: 2px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+  font-family: sans-serif;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+}
+.tgl-flip + .tgl-btn:after, .tgl-flip + .tgl-btn:before {
+  display: inline-block;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  line-height: 2em;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 4px;
+}
+.tgl-flip + .tgl-btn:after {
+  content: attr(data-tg-on);
+  background: #02C66F;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+.tgl-flip + .tgl-btn:before {
+  background: #FF3A19;
+  content: attr(data-tg-off);
+}
+.tgl-flip + .tgl-btn:active:before {
+  -webkit-transform: rotateY(-20deg);
+          transform: rotateY(-20deg);
+}
+.tgl-flip:checked + .tgl-btn:before {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.tgl-flip:checked + .tgl-btn:after {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+  left: 0;
+  background: #7FC6A6;
+}
+.tgl-flip:checked + .tgl-btn:active:after {
+  -webkit-transform: rotateY(20deg);
+          transform: rotateY(20deg);
+}
+
+
+
+
+.sticky {
+  position: fixed;
+  top: 10px;
+  right: 234px;
+  width: 100%;
+}
+
+
+
+
+
+
+
+.my11{
+  display: inline-block; 
+}
+
+.center-block {
+  float:none;
+}
+    </style>    
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <center>
+            <a href="/AiHiring/index.html"><img src="{% static 'personal/images/databytes.jpg'%}" class="brandpic" height="40"></a>
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </center>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/AiHiring/index.html" >Home</a></li>
+
+
+                <li><a href="/AiHiring/example.html">Upload</a></li>
+                <li><a href="/AiHiring/page.html">Specify Details</a></li>
+                <li><a href="/AiHiring/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+      
+
+
+<center>
+<div class="container-fluid" style="padding-top: 30px">
+    <div class="col-sm-12">     
+        <!-- insert the page content here -->
+        <h1 class="firstheading">Result/Report</h1>
+
+
+
+
+</div> 
+          </div> 
+      
+
+</center>
+
+
+
+<form method="POST" action="/AiHiring/another_page.html">
+  {% csrf_token %}
+<div class="container-fluid">  
+<center>  
+<div class="col-sm-12">    
+<h1 class="firstheading" style="font-size: 20px">Average Cutoff</h1>
+    </div> 
+    </center> 
+    </div>    
+
+<div class="container-fluid">
+<div class="col-xs-4 col1 center-block">  
+   
+<div class="value">{{ default }}</div>
+  
+</div>     
+   
+ </div>     
+<div class="container-fluid">
+<div class="col-xs-4 col1 center-block">  
+<div class="range-slider" style="margin-top: 50px; padding-bottom: 30px">
+<input class="range-slider__range"type="range" min="0" max="100" step="1" value="{{ default }}" name="averageCUTOFF" onclick="recal(document.getElementById('dropdown').value)" id="averageCUTOFF">
+    </div>
+    </div>
+    </div>  
+                 
+<center>      
+<div class='container-fluid'>
+<div class='col-sm-12'>    
+<div class="dropdown">
+<label class='firstheading' style="font-size:20px; font-weight: 100" >No. of Resumes:
+<input list="browsers" name="myBrowser" id="dropdown" onchange="" /></label>
+<datalist id="browsers">
+  <option value="10">
+  <option value="20">
+  <option value="30">
+  <option value="40">
+  <option value="50">
+  <option value="60">
+  <option value="70">
+  <option value="80">
+  <option value="90"> 
+  <option value="100">
+</datalist>
+
+<div id="valueOFdropdown"></div>
+
+<script type="text/javascript">
+  function valueCHANGE(){
+  //console.log(document.getElementById('dropdown').value);
+  var value=document.getElementById('dropdown').value;
+  document.getElementById('valueOFdropdown').innnerHTML=value;
+}
+</script>
+</div>
+    </div>
+    </div> 
+    </center>    
+<!--
+<div class="myDROP">
+Top N-Resumes:
+<select id ="ddl" name="ddl" onchange="" style="margin-left: 200px;margin-top: 10px;">
+  <option value='10'>10</option>
+  <option value='20'>20</option>
+  <option value='30'>30</option>
+  <option value='40'>40</option>
+  <option value='50'>50</option>
+  <option value='60'>60</option>
+  <option value='70'>70</option>
+  <option value='80'>80</option>
+  <option value='90'>90</option>
+  <option value='100'>100</option>
+</select>
+</div>
+-->
+
+
+
+<center>
+<div class="my1" id="my1">
+  
+</div>
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[0]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML="<div class='my'><div id='LOChideNOThide'><div class='checkbox'>  <div>Location</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle' onclick='toggleCOLOR()' checked='checked' value='checkbox__toggle'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[1]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML+="<div class='my'><div id='SKIhideNOThide'><div class='checkbox'>  <div>Skills</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle1' onclick='toggleCOLOR1()' checked='checked'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg1' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR1() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle1').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg1').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg1').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[2]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML+="<div class='my'><div id='COMhideNOThide'><div class='checkbox'>  <div>Company</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle3' onclick='toggleCOLOR3()' checked='checked'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg3' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR3() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle3').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg3').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg3').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[3]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML+="<div class='my'>  <div id='UNIhideNOThide'><div class='checkbox'>  <div>University</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle4' onclick='toggleCOLOR4()' checked='checked'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg4' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR4() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle4').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg4').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg4').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[4]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML+="<div class='my'><div id='DEGhideNOThide'><div class='checkbox'>  <div>Degree</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle5' onclick='toggleCOLOR5()' checked='checked'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg5' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR5() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle5').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg5').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg5').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  if ({{parameters}}[5]==1)
+  {
+    //console.log(document.getElementById('checkbox__toggle').value);
+    document.getElementById('my1').innerHTML+="<div class='my'><div id='MAJhideNOThide'><div class='checkbox'>  <div>Major</div>  <label class='checkbox__container'>    <input class='checkbox__toggle' type='checkbox' id='checkbox__toggle6' onclick='toggleCOLOR6()' checked='checked'>    <span class='checkbox__checker'></span>    <span class='checkbox__txt-left' >On</span>    <span class='checkbox__txt-right' >Off</span>    <svg class='checkbox__bg' id='checkbox__bg6' space='preserve' style='enable-background:new 0 0 110 43.76;' version='1.1' viewbox='0 0 110 43.76'>      <path class='shape' d='M88.256,43.76c12.188,0,21.88-9.796,21.88-21.88S100.247,0,88.256,0c-15.745,0-20.67,12.281-33.257,12.281,S38.16,0,21.731,0C9.622,0-0.149,9.796-0.149,21.88s9.672,21.88,21.88,21.88c17.519,0,20.67-13.384,33.263-13.384,S72.784,43.76,88.256,43.76z'></path>    </svg>  </label></div></div></div>";
+  }
+  function toggleCOLOR6() {
+    // body...
+
+  var t = document.getElementById('checkbox__toggle6').checked;
+  //console.log(t);
+  if (t){
+    document.getElementById('checkbox__bg6').style.fill = "#18661d";
+  }
+  else{
+    document.getElementById('checkbox__bg6').style.fill = "#bf1e1e"; 
+  }
+  }
+
+</script>
+
+</center>
+
+
+
+
+</form>
+
+
+    <div class='container-fluid' style="margin-top: 60px">
+    <div class="col-sm-4">
+    <h4 class="secheading" style="">Want Resume Information ?</h4>
+    <input class="tgl tgl-flip" type="checkbox" checked="checked"  name="wantInfo" value="wantInfo" id="wantInfo" />
+    <label class="tgl-btn" data-tg-off="No." data-tg-on="Yes." for="wantInfo"></label>
+        </div>
+    <div class="col-sm-8">
+    <button name="recal" id="recal" onclick="recal(document.getElementById('dropdown').value);popup(document.getElementById('dropdown').value)" class="btn pull-right btn-primary" style="padding-right: 30px; padding-left:30px; margin: 15px; font-size: 20px ; font-family:sans-serif;">GO</button>
+    </div>    
+<br>
+</div> 
+  
+<div id="myModal" class="modal">
+<div class="container">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2 style="color: red;">Attention!!</h2>
+    </div>
+    <div class="modal-body" id="popupContent">
+      
+    </div>
+    <div class="modal-footer">
+      <h3 style="color: blue;">Thank You!!!</h3>
+    </div>
+  </div>
+
+</div>
+</div>  
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("recal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+//btn.onclick = function() {
+ //   modal.style.display = "block";
+//}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+   modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+   if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+poponce=1;
+function popuponce(){
+  if(poponce==1)
+  {
+  var modal = document.getElementById('myModal');
+  modal.style.display = "block";
+  var popupContent = document.getElementById('popupContent');
+  popupContent.innerHTML = "";
+  popupContent.innerHTML = "<p>All the selected Resumes is stored in another table below.</p><p>Please use the 'Show' button to see the below table...</p><p>Note: 'Save' button will only get enabled when you choose 'No' in 'Do You Want to Add More Resumes ?' field.</p>";
+  }
+  poponce+=1;
+}
+function popup(topNRESUMES){
+  
+  topNRESUMES=parseInt(topNRESUMES)
+//console.log(topNRESUMES)
+var x = document.getElementById("myTable").rows.length;
+      console.log(x);
+
+
+if(topNRESUMES==0 || isNaN(topNRESUMES)){
+  var modal = document.getElementById('myModal');
+  modal.style.display = "block";
+  var popupContent = document.getElementById('popupContent');
+  popupContent.innerHTML = "";
+  popupContent.innerHTML = "<p>You didn't fill out all the entries.</p><p>Please fill the 'Choose number of Resume' field...</p>";
+}
+
+
+
+      else if (x<=2){
+      console.log("yes it is less than 2....no content in the table.")
+  var modal = document.getElementById('myModal');
+  modal.style.display = "block";
+  var popupContent = document.getElementById('popupContent');
+  popupContent.innerHTML = "";
+  popupContent.innerHTML = "<p>No Resume got filtered out based on your given values.</p><p>Please try to reduce the 'Average CutOff' field... or</p><p>Please try to desselect some parameters...</p>";
+      }
+      var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      var y = document.getElementById("myTable").value;
+}
+
+
+
+</script>
+<!--<input type="text" name="just4fun" id="just4fun">-->
+<script type="text/javascript">
+  {% load extra %}
+  function checkEntry(newPara,cl,sk,co,un,qu){
+    var retVar = true;
+    //console.log(newPara);
+    
+    if(newPara[0]==1){
+      if(cl!=0){
+      retVar = retVar&true;
+    }
+    else{
+      retVar = retVar&false;
+    }
+  }
+  //console.log(cl);
+  //console.log(retVar);
+    if(newPara[1]==1){
+      if(sk!=0){
+      retVar = retVar&true;
+    }
+    else{
+      retVar = retVar&false;
+    }
+  }
+  //console.log(sk);
+  //console.log(retVar);
+    if(newPara[2]==1){
+      if(co!=0){
+      retVar = retVar&true;
+    }
+    else{
+      retVar = retVar&false;
+    }
+  }
+  //console.log(co);
+  //console.log(retVar);
+    if(newPara[3]==1){
+      if(un!=0){
+      retVar = retVar&true;
+    }
+    else{
+      retVar = retVar&false;
+    }
+  }
+  //console.log(un);
+  //console.log(retVar);
+    if((newPara[4]==1 || newPara[5]==1)){
+      if(qu!=0){
+      retVar = retVar&true;
+    }
+    else{
+      retVar = retVar&false;
+    } 
+  }
+  //console.log(qu);
+  //console.log(retVar);
+    return retVar;
+  }
+  function recal(topNRESUMES){
+    //console.log(topNRESUMES)
+    //console.log("hehehehehheheheheheehheheeheh");
+    //document.getElementById('just4fun').value={{weightList}};
+    var newPara=[];
+    if ({{parameters}}[0]==1){
+    locationBUTTON = document.getElementById('checkbox__toggle').checked;
+    }
+    if ({{parameters}}[1]==1){
+    skillsBUTTON = document.getElementById('checkbox__toggle1').checked;
+    }
+    if ({{parameters}}[2]==1){
+    companyBUTTON = document.getElementById('checkbox__toggle3').checked;
+    }
+    if ({{parameters}}[3]==1){
+    universityBUTTON = document.getElementById('checkbox__toggle4').checked;
+    }
+    if ({{parameters}}[4]==1){
+    degreeBUTTON = document.getElementById('checkbox__toggle5').checked;
+    }
+    if ({{parameters}}[5]==1){
+    majorBUTTON = document.getElementById('checkbox__toggle6').checked;
+    }
+   
+    //console.log(locationBUTTON);
+    //console.log(skillsBUTTON);
+    //console.log(companyBUTTON);
+    //console.log(universityBUTTON);
+    //console.log(degreeBUTTON);
+    //console.log(majorBUTTON);
+    //console.log("_________________________________");
+    summ=0;
+    if ({{parameters}}[0]==1){
+    if(locationBUTTON==true){
+      summ+=parseInt({{weightList}}[0]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if ({{parameters}}[1]==1){
+    if(skillsBUTTON==true){
+      summ+=parseInt({{weightList}}[1]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if ({{parameters}}[2]==1){
+    if(companyBUTTON==true){
+      summ+=parseInt({{weightList}}[2]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if ({{parameters}}[3]==1){
+    if(universityBUTTON==true){
+      summ+=parseInt({{weightList}}[3]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if ({{parameters}}[4]==1){
+    if(degreeBUTTON==true){
+      summ+=parseInt({{weightList}}[4]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if ({{parameters}}[5]==1){
+    if(majorBUTTON==true){
+      summ+=parseInt({{weightList}}[5]);
+      newPara.push(1);
+    }
+    else{
+      newPara.push(0);
+    }
+    }
+    else{
+      newPara.push(0);
+    }
+    if(summ==0){
+      //console.log("hurrrrrrrayyyyyyyyyyyyyy");
+    }
+    //console.log(newPara);
+    //console.log(summ);
+    multiFACT=(100/summ).toFixed(2);
+    //console.log(multiFACT);
+
+    if ({{parameters}}[0]==1){
+      if (locationBUTTON==true && summ!=0){
+        newLOCweight=({{weightList}}[0]*multiFACT).toFixed(2);
+      }
+      else{
+        newLOCweight=0; 
+      }
+    }
+    else{
+      newLOCweight=0; 
+    }
+    
+    if ({{parameters}}[1]==1){
+      if(skillsBUTTON==true && summ!=0){
+        newSKIweight=({{weightList}}[1]*multiFACT).toFixed(2);
+      }
+      else{
+        newSKIweight=0; 
+      }
+    }
+    else{
+      newSKIweight=0;
+    }
+
+    if ({{parameters}}[2]==1){
+      if(companyBUTTON==true && summ!=0){
+        newCOMweight=({{weightList}}[2]*multiFACT).toFixed(2);
+      }
+      else{
+        newCOMweight=0; 
+      }
+    }
+    else{
+      newCOMweight=0;
+    }
+    
+    if ({{parameters}}[3]==1){
+      if(universityBUTTON==true && summ!=0){
+        newUNIweight=({{weightList}}[3]*multiFACT).toFixed(2);
+      }
+      else{
+        newUNIweight=0; 
+      }
+    }
+    else{
+      newUNIweight=0;
+    }
+    
+    if ({{parameters}}[4]==1){
+      if(degreeBUTTON==true && summ!=0){
+        newDEGweight=({{weightList}}[4]*multiFACT).toFixed(2);
+      }
+      else{
+        newDEGweight=0; 
+      }
+    }
+    else{
+      newDEGweight=0;
+    }
+    
+    if ({{parameters}}[5]==1){
+      if(majorBUTTON==true && summ!=0){
+        newMAJweight=({{weightList}}[5]*multiFACT).toFixed(2);
+      }
+      else{
+        newMAJweight=0; 
+      }
+    }
+    else{
+      newMAJweight=0;
+    }
+
+    var arrr=[];
+    arrr.push(newLOCweight);
+    arrr.push(newSKIweight);
+    arrr.push(newCOMweight);
+    arrr.push(newUNIweight);
+    arrr.push(newDEGweight);
+    arrr.push(newMAJweight);
+    
+    //document.getElementById('just4fun').value=arrr;
+    var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      if (x>2){
+        for(i=x-2;i>0;i--){
+          //console.log(i);
+          document.getElementById("myTable").deleteRow(i);
+        }
+      }
+      var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      var y = document.getElementById("myTable").value;
+      //console.log(y);
+      if (document.getElementById("wantInfo").checked){
+     var score = document.getElementById("Info")
+     
+
+      if (score.style.display == "none"){
+        score.style.display = "";
+      }
+      var newAVGscore=[];
+      var cntr=0;
+      var newcntr=0;
+      {% for c in cl %}
+      if(checkEntry(newPara,{{c}},{{sk|get_at_index:forloop.counter0}},{{co|get_at_index:forloop.counter0}},{{un|get_at_index:forloop.counter0}},{{qu|get_at_index:forloop.counter0}})){
+        cntr+=1;
+        if(cntr<=topNRESUMES){
+        var temp1=(({{c}}*newLOCweight+{{sk|get_at_index:forloop.counter0}}*newSKIweight+{{un|get_at_index:forloop.counter0}}*newUNIweight+{{co|get_at_index:forloop.counter0}}*newCOMweight+{{qu|get_at_index:forloop.counter0}}*newDEGweight)/100).toFixed(2);
+        if (temp1>100){
+          temp1=100;
+        }
+        newAVGscore.push(temp1);
+        //console.log(newAVGscore);
+        var temp = document.getElementById('averageCUTOFF').value
+        //console.log(temp);
+        //console.log(temp1);
+        if (temp1 >= parseInt(temp)){
+      var table = document.getElementById("myTable");
+
+      var row = table.insertRow(cntr);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      //console.log({{parameters}});
+      cell1.innerHTML = cntr;
+      cell2.innerHTML = "<i><b><form action='/AiHiring/PRS1w.pdf/'' method='POST' target='_blank'>{% csrf_token %}<button type='submit' name='filename' value='{{ fileNameList|get_at_index:forloop.counter0 }}' class='link-button'>{{ fileNameList|get_at_index:forloop.counter0 }}</button></form></b></i>";
+      //cell2.innerHTML = "<i><b>"+temp1+"</b></i>";
+      cell3.innerHTML = "<i><b>selected</b></i>";
+      cell4.innerHTML = "<form action='/AiHiring/selected.html' method='POST' target='_blank'>{% csrf_token %}<input type='hidden' name='para' id='para' value='"+newPara+"'><input type='hidden' name='file' value='{{fileNameList|get_at_index:forloop.counter0}}'  id='file"+{{forloop.counter}}+"'><input type='hidden' name='avgs' id='avgscr"+{{forloop.counter}}+"' value='"+temp1+"'><input type='hidden' name='locs' value='LocationScore : {{c}}'><input type='hidden' name='locm' value='{{cl1|get_at_index:forloop.counter0}}'><input type='hidden' name='skis' value='SkillScore : {{sk|get_at_index:forloop.counter0}}'><input type='hidden' name='skim' value='{{sk1|get_at_index:forloop.counter0}}'><input type='hidden' name='unis' value='UniversityScore : {{un|get_at_index:forloop.counter0}}'><input type='hidden' name='unim' value='{{un1|get_at_index:forloop.counter0}}'><input type='hidden' name='coms' value='ComapnyScore : {{co|get_at_index:forloop.counter0}}'><input type='hidden' name='comm' value='{{co1|get_at_index:forloop.counter0}}'><input type='hidden' name='quas' value='QualificationScore : {{qu|get_at_index:forloop.counter0}}'><input type='hidden' name='quam' value='{{qu1|get_at_index:forloop.counter0}}'><input type='hidden' name='emam' value='{{emailList|get_at_index:forloop.counter0}}' id='email"+{{forloop.counter}}+"'><input type='hidden' name='phom' value='{{phoneList|get_at_index:forloop.counter0}}' id='phone"+{{forloop.counter}}+"'><button type='submit' formmethod='post'>View Information</button></form>"
+      var tempp = {{ forloop.counter }};
+      //console.log(tempp);
+      strID = 'chckbx'+tempp;
+      strVL = '{{fileNameList|get_at_index:forloop.counter0}}';
+      //console.log(typeof(strVL));
+      cell5.innerHTML = "<input type='checkbox' id='" +strID+"' onchange='addResume(this.id,"+tempp+")'>{{fileNameList|get_at_index:forloop.counter0}}</input>";
+    }
+  }
+}
+      {% endfor %}
+
+      }
+     else{
+      var score = document.getElementById("Info")
+      score.style.display = "none";
+      var newAVGscore=[];
+      var cntr=0;
+      {% for c in cl %}
+      if(checkEntry(newPara,{{c}},{{sk|get_at_index:forloop.counter0}},{{co|get_at_index:forloop.counter0}},{{un|get_at_index:forloop.counter0}},{{qu|get_at_index:forloop.counter0}})){
+      cntr+=1;
+        if(cntr<=topNRESUMES){
+        //console.log({{c}})
+        var temp1=(({{c}}*newLOCweight+{{sk|get_at_index:forloop.counter0}}*newSKIweight+{{un|get_at_index:forloop.counter0}}*newUNIweight+{{co|get_at_index:forloop.counter0}}*newCOMweight+{{qu|get_at_index:forloop.counter0}}*newDEGweight)/100).toFixed(2);
+        if (temp1>100){
+          temp1=100;
+        }
+        newAVGscore.push(temp1);
+        //console.log(newAVGscore);
+        var temp = document.getElementById('averageCUTOFF').value
+        //console.log(temp);
+        //console.log(temp1);
+        if (temp1 >= parseInt(temp)){
+      var table = document.getElementById("myTable");
+
+      var row = table.insertRow(cntr);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      cell1.innerHTML = cntr;
+      cell2.innerHTML = "<i><b><form action='/AiHiring/PRS1w.pdf/'' method='POST' target='_blank'>{% csrf_token %}<button type='submit' name='filename' value='{{ fileNameList|get_at_index:forloop.counter0 }}' class='link-button'>{{ fileNameList|get_at_index:forloop.counter0 }}</button></form></b></i>";
+      //cell2.innerHTML = "<i><b>"+temp1+"</b></i>";
+      cell3.innerHTML = "<i><b>selected</b></i>";
+      cell4.innerHTML = "<form action='/AiHiring/selected.html' method='POST' target='_blank'>{% csrf_token %}<input type='hidden' name='para' id='para' value='"+newPara+"'><input type='hidden' name='file' value='{{fileNameList|get_at_index:forloop.counter0}}'  id='file"+{{forloop.counter}}+"'><input type='hidden' name='avgs' id='avgscr"+{{forloop.counter}}+"' value='"+temp1+"'><input type='hidden' name='locs' value='LocationScore : {{c}}'><input type='hidden' name='locm' value='{{cl1|get_at_index:forloop.counter0}}'><input type='hidden' name='skis' value='SkillScore : {{sk|get_at_index:forloop.counter0}}'><input type='hidden' name='skim' value='{{sk1|get_at_index:forloop.counter0}}'><input type='hidden' name='unis' value='UniversityScore : {{un|get_at_index:forloop.counter0}}'><input type='hidden' name='unim' value='{{un1|get_at_index:forloop.counter0}}'><input type='hidden' name='coms' value='ComapnyScore : {{co|get_at_index:forloop.counter0}}'><input type='hidden' name='comm' value='{{co1|get_at_index:forloop.counter0}}'><input type='hidden' name='quas' value='QualificationScore : {{qu|get_at_index:forloop.counter0}}'><input type='hidden' name='quam' value='{{qu1|get_at_index:forloop.counter0}}'><input type='hidden' name='emam' value='{{emailList|get_at_index:forloop.counter0}}' id='email"+{{forloop.counter}}+"'><input type='hidden' name='phom' value='{{phoneList|get_at_index:forloop.counter0}}' id='phone"+{{forloop.counter}}+"'><button type='submit' formmethod='post'>View Information</button></form>"
+      cell4.style.display = "none";
+      var tempp = {{ forloop.counter }};
+      //console.log(tempp);
+      strID = 'chckbx'+tempp;
+      strVL = '{{fileNameList|get_at_index:forloop.counter0}}';
+      //console.log(typeof(strVL));
+      cell5.innerHTML = "<input type='checkbox' id='" +strID+"' onchange='addResume(this.id,"+tempp+")'>{{fileNameList|get_at_index:forloop.counter0}}</input>";
+    }
+}
+ }     {% endfor %}
+
+     }
+    
+    
+    
+  }
+</script>
+
+
+
+
+
+<script type="text/javascript">
+  var elem = document.querySelector('input[type="range"]');
+
+var rangeValue = function(){
+  var newValue = elem.value;
+  var target = document.querySelector('.value');
+  target.innerHTML = newValue;
+
+  
+}
+
+
+
+elem.addEventListener("input", rangeValue);
+
+
+{% load extra %}
+
+function myFunction1() {
+  if (document.getElementById("wantInfo").checked){
+     var score = document.getElementById("Info")
+     if (score.style.display == "none"){
+      score.style.display = "";
+     }
+  var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      if (x>2){
+        for(i=x-2;i>0;i--){
+          //console.log(i);
+          document.getElementById("myTable").deleteRow(i);
+        }
+      }
+      var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      var y = document.getElementById("myTable").value;
+      //console.log(y);
+  {% for c in averageScoreList %}
+    var temp = document.getElementById('averageCUTOFF').value
+    
+    if ({{c}} >= temp){
+      var table = document.getElementById("myTable");
+
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      
+      cell1.innerHTML = "<i><b><form action='/AiHiring/PRS1w.pdf/'' method='POST' target='_blank'>{% csrf_token %}<button type='submit' name='filename' value='{{ fileNameList|get_at_index:forloop.counter0 }}' class='link-button'>{{ fileNameList|get_at_index:forloop.counter0 }}</button></form></b></i>";
+      cell2.innerHTML = "<i><b>{{c}}</b></i>";
+      cell3.innerHTML = "<i><b>selected</b></i>";
+      cell4.innerHTML = "<form action='/AiHiring/selected.html' method='POST' target='_blank'>{% csrf_token %}<input type='hidden' name='file' value='{{fileNameList|get_at_index:forloop.counter0}}'  id='file"+{{forloop.counter}}+"'><input type='hidden' name='avgs' id='avgscr"+{{forloop.counter}}+"' value='AverageScore : {{c}}'><input type='hidden' name='locs' value='LocationScore : {{cl|get_at_index:forloop.counter0}}'><input type='hidden' name='locm' value='Location : {{cl1|get_at_index:forloop.counter0}}'><input type='hidden' name='skis' value='SkillScore : {{sk|get_at_index:forloop.counter0}}'><input type='hidden' name='skim' value='Skill : {{sk1|get_at_index:forloop.counter0}}'><input type='hidden' name='unis' value='UniversityScore : {{un|get_at_index:forloop.counter0}}'><input type='hidden' name='unim' value='University : {{un1|get_at_index:forloop.counter0}}'><input type='hidden' name='coms' value='ComapnyScore : {{co|get_at_index:forloop.counter0}}'><input type='hidden' name='comm' value='Comapny : {{co1|get_at_index:forloop.counter0}}'><input type='hidden' name='quas' value='QualificationScore : {{qu|get_at_index:forloop.counter0}}'><input type='hidden' name='quam' value='Qualification : {{qu1|get_at_index:forloop.counter0}}'><input type='hidden' name='emam' value='{{emailList|get_at_index:forloop.counter0}}' id='email"+{{forloop.counter}}+"'><input type='hidden' name='phom' value='{{phoneList|get_at_index:forloop.counter0}}' id='phone"+{{forloop.counter}}+"'><button type='submit' formmethod='post'>View Information</button></form>"
+      var tempp = {{ forloop.counter }};
+      //console.log(tempp);
+      strID = 'chckbx'+tempp;
+      strVL = '{{fileNameList|get_at_index:forloop.counter0}}';
+      //console.log(typeof(strVL));
+      cell5.innerHTML = "<input type='checkbox' id='" +strID+"' onchange='addResume(this.id,"+tempp+")'>{{fileNameList|get_at_index:forloop.counter0}}</input>";
+    }
+//    else{
+//      var table = document.getElementById("myTable");
+//      var row = table.insertRow(1);
+//      var cell1 = row.insertCell(0);
+//      var cell2 = row.insertCell(1);
+//      var cell3 = row.insertCell(2);
+//      cell1.innerHTML = "{{ fileNameList|get_at_index:forloop.counter0 }}";
+//      cell2.innerHTML = {{c}};
+//      cell3.innerHTML = "NOT  selected";
+//    
+//    }
+  {% endfor %}
+}
+else{
+  var score = document.getElementById("Info")
+  score.style.display = "none";
+  var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      if (x>2){
+        for(i=x-2;i>0;i--){
+          //console.log(i);
+          document.getElementById("myTable").deleteRow(i);
+        }
+      }
+      var x = document.getElementById("myTable").rows.length;
+      //console.log(x);
+      var y = document.getElementById("myTable").value;
+      //console.log(y);
+  {% for c in averageScoreList %}
+    var temp = document.getElementById('averageCUTOFF').value
+    
+    if ({{c}} >= temp){
+      var table = document.getElementById("myTable");
+
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+      var cell5 = row.insertCell(4);
+      
+      cell1.innerHTML = "<i><b><form action='/AiHiring/PRS1w.pdf/'' method='POST' target='_blank'>{% csrf_token %}<button type='submit' name='filename' value='{{ fileNameList|get_at_index:forloop.counter0 }}' class='link-button'>{{ fileNameList|get_at_index:forloop.counter0 }}</button></form></b></i>";
+      cell2.innerHTML = "<i><b>{{c}}</b></i>";
+      cell3.innerHTML = "<i><b>selected</b></i>";
+      cell4.innerHTML = "<form action='/AiHiring/selected.html' method='POST' target='_blank'>{% csrf_token %}<input type='hidden' name='file' value='{{fileNameList|get_at_index:forloop.counter0}}' id='file"+{{forloop.counter}}+"'><input type='hidden' name='avgs' id='avgscr"+{{forloop.counter}}+"' value='AverageScore : {{c}}'><input type='hidden' name='locs' value='LocationScore : {{cl|get_at_index:forloop.counter0}}'><input type='hidden' name='locm' value='Location : {{cl1|get_at_index:forloop.counter0}}'><input type='hidden' name='skis' value='SkillScore : {{sk|get_at_index:forloop.counter0}}'><input type='hidden' name='skim' value='Skill : {{sk1|get_at_index:forloop.counter0}}'><input type='hidden' name='unis' value='UniversityScore : {{un|get_at_index:forloop.counter0}}'><input type='hidden' name='unim' value='University : {{un1|get_at_index:forloop.counter0}}'><input type='hidden' name='coms' value='ComapnyScore : {{co|get_at_index:forloop.counter0}}'><input type='hidden' name='comm' value='Comapny : {{co1|get_at_index:forloop.counter0}}'><input type='hidden' name='quas' value='QualificationScore : {{qu|get_at_index:forloop.counter0}}'><input type='hidden' name='quam' value='Qualification : {{qu1|get_at_index:forloop.counter0}}'><input type='hidden' name='emam' value='{{emailList|get_at_index:forloop.counter0}}' id='email"+{{forloop.counter}}+"'><input type='hidden' name='phom' value='{{phoneList|get_at_index:forloop.counter0}}' id='phone"+{{forloop.counter}}+"'><button type='submit' formmethod='post'>View Information</button></form>"
+
+      cell4.style.display = "none";
+      var tempp = {{ forloop.counter }};
+      //console.log(tempp);
+      strID = 'chckbx'+tempp;
+      strVL = '{{fileNameList|get_at_index:forloop.counter0}}';
+      //console.log(typeof(strVL));
+      cell5.innerHTML = "<input type='checkbox' id='" +strID+"' onchange='addResume(this.id,"+tempp+")'>{{fileNameList|get_at_index:forloop.counter0}}</input>";
+    }
+//    else{
+//      var table = document.getElementById("myTable");
+//      var row = table.insertRow(1);
+//      var cell1 = row.insertCell(0);
+//      var cell2 = row.insertCell(1);
+//      var cell3 = row.insertCell(2);
+//      cell1.innerHTML = "{{ fileNameList|get_at_index:forloop.counter0 }}";
+//      cell2.innerHTML = {{c}};
+//      cell3.innerHTML = "NOT  selected";
+//    
+//    }
+  {% endfor %}
+
+
+
+
+
+
+}
+}
+
+
+</script>
+
+
+<!--
+
+
+<p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="want_result" value="giveResult" /></p>
+        <p id="instantMSG"></p>
+
+-->
+
+<!---
+        <p>DEFAULT CUTOFF {{ default }}</p>
+        <p>AVERAGE RESUME SCORE {{ avgScore }}</p>
+
+        <p>{{ fileNameList.0 }}</p>
+        <p>{{ averageScoreList }}</p>
+          <p id="demo"></p>
+          {% load extra %}
+          {% for c in averageScoreList %}
+              {{ c }}<br>
+              {{ fileNameList|get_at_index:forloop.counter0 }}<br>
+              {{ forloop.counter0 }}<br>
+          {% endfor %}
+-->
+
+
+
+<!---
+          <div class="mymy">
+            <div id="resumes" class="mymy">
+              {% for c in fileNameList %}
+                {{c}}<br>
+              {% endfor %}
+            </div>
+            <div id="scores" class="mymy">
+              {% for c in averageScoreList %}
+                {{c}}<br>
+              {% endfor %}  
+            </div>
+            <div id="results" class="mymy"></div>
+          </div>
+
+-->
+
+<!---        
+        {% for c in averageScoreList %}
+          {% if c > 50 %}
+            {{c}}
+          {% endif %}
+        {% endfor %}
+
+        <p>{{ msg }}</p>
+        <p>{{ cL }}</p>
+        <p>{{ sk }}</p>
+        <p>{{ univ }}</p>
+        <p>{{ comp }}</p>
+        <p>{{ qual }}</p>
+        <p id="instantMSG"></p>
+-->
+
+  
+
+
+<!---
+
+
+<div >
+Top N-Resumes
+<select id="soflow-color" name="topNRESUMES">
+   
+  <option>10</option>
+  <option>20</option>
+  <option>30</option>
+  <option>40</option>
+  <option selected="selected">50</option>
+  <option>60</option>
+  <option>70</option>
+  <option>80</option>
+  <option>90</option>
+  <option>100</option>
+</select>
+</div>
+
+
+
+
+
+
+
+<p style="padding-top: 15px"><span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="submit" /></p>
+
+
+
+
+
+
+</form>
+  
+
+
+-->
+<!--
+{{fileNameList}}<br>
+{{cl}}<br>
+{{sk}}<br>
+{{co}}<br>
+{{un}}<br>
+{{qu}}<br>
+-->
+<div class="container-fluid" style="margin-top: 20px">
+<div class="col-sm-12">
+<div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px"><h1 class="thirdheading" style="color: white; opacity: 1.0 ; font-size: 30px; "><center>Results Table<center></h1></div>
+    
+    </div>    
+<div class='table-responsive'>
+    
+<table class="table table-hover table-striped" id="myTable">
+  <thead>
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col" id="score">Resume</th>
+      <th scope="col">Result</th>
+      <th scope="col" id="Info">Resume Information</th>
+      <th scope="col" id="Info">Select Resume ?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    </tr>
+
+
+  </tbody>
+
+</table>
+         
+    </div>
+    
+    <div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px; margin-top:10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px">
+    
+    </div> 
+    </div>     
+    
+
+  
+    <center>
+    <div class="col-sm-12">    
+    <button class="btn btn-success btn-lg"style="margin-top: 40px; padding-right: 30px; padding-left:30px; font-size: 20px ; font-family: sans-serif ;"name="xyz" id="xyz" type="" value="xyz" onclick="saveToNEWtable();popuponce();">Submit</button>  
+    </div>    
+    </center>
+        
+    
+    
+          </div>
+    
+          </div>  
+
+
+<div class='container-fluid' style="margin-top: 50px; padding-top: 60px">
+<div class="col-sm-4"> 
+
+   <h4 class="secheading" style="margin-top: 65px">Do You Want to Add More Resumes ?</h4>
+    <input class="tgl tgl-flip" type="checkbox" onclick="toggleSaveGo()" checked="checked"  name="wantMore" value="wantMore" id="wantMore" />
+    <label class="tgl-btn" data-tg-off="No." data-tg-on="Yes." for="wantMore"></label>
+    </div>
+  <div class="col-sm-8" style="margin-top:77px">
+<button id="toggleHideUnhide" onclick="change()" class="btn pull-right btn-primary"id="hide"style="font-size: 20px ; font-family: sans-serif ; margin: 0px">Show</button>
+    
+       
+</div>
+          
+          </div>       
+<div  class="container-fluid" style="padding-top: 30px">
+<div id="show"class="col-sm-12" style="display: none">
+<div  class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px"><h1 class="thirdheading" style="color: white; opacity: 1.0 ; font-size: 30px; "><center>Final Resumes Selected</center></h1></div>
+    
+    </div>    
+<div class='table-responsive'>
+    
+<table class="table table-hover table-striped" id="myTable1">
+  <thead>
+    <tr>
+      <th scope="col">SN</th>
+      <th scope="col" id="score">Resume</th>
+      <th scope="col">Parameters Selected</th>
+      <th scope="col" id="Info">Final Selection</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    </tr>
+
+
+  </tbody>
+
+</table>
+         
+    </div>
+    <center>
+    <div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px; margin-top:10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px">
+   
+    </div> 
+    </div>    
+    </center>
+        
+    
+    
+          </div>
+    
+          </div>          
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+cntr=0;
+function change(){
+cntr++;
+if(cntr%2!=0){
+document.getElementById("myTable1").style.display = "";
+}
+else{
+document.getElementById("myTable1").style.display = "none";
+}
+}
+</script>
+<script>
+cntr=0;
+function change(){
+cntr++;
+if(cntr%2!=0){
+document.getElementById("show").style.display = "";
+document.getElementById("save").style.display = "";    
+}
+else{
+document.getElementById("save").style.display = "none";    
+document.getElementById("show").style.display = "none";
+    
+}
+}
+</script>
+  
+     
+<body>
+
+
+
+
+
+
+<div class="container-fluid">
+
+<form action="/AiHiring/finalLIST.html" method="POST">
+  {% csrf_token %}
+
+  <input type='hidden' name='myList' id="myList">
+  <input type='hidden' name='myList1' id="myList1">
+  <input type='hidden' name='myList2' id="myList2">
+
+    
+    <div class="col-sm-12">
+    <center>
+    <button name="save" id="save" onclick="save()" type="submit" disabled="disabled" class="btn btn-success" value="save" style="padding-right: 30px; padding-left:30px; margin-top: 30px; font-size: 20px ; font-family: sans-serif ; display: none">save</button>
+    </center>
+       </div> 
+</form>
+    
+</div>
+
+<script type="text/javascript">
+  {% load extra %}
+  var noDup=[];
+  var srno = 0;
+  function saveToNEWtable(){
+    var loopITER=document.getElementById("dropdown").value;
+    var paraSelect=[];
+        if ({{parameters}}[0]==1){
+        if(document.getElementById('checkbox__toggle').checked){
+          paraSelect.push("Location");
+        }
+        }
+        if ({{parameters}}[1]==1){
+        if(document.getElementById('checkbox__toggle1').checked){
+          paraSelect.push("Skills");
+        }
+        }
+        if ({{parameters}}[2]==1){
+        if(document.getElementById('checkbox__toggle3').checked){
+          paraSelect.push("Company");
+        }
+        }
+        if ({{parameters}}[3]==1){
+        if(document.getElementById('checkbox__toggle4').checked){
+          paraSelect.push("University");
+        }
+        }
+        if ({{parameters}}[4]==1){
+        if(document.getElementById('checkbox__toggle5').checked){
+          paraSelect.push("Degree");
+        }
+        }
+        if ({{parameters}}[5]==1){
+        if(document.getElementById('checkbox__toggle6').checked){
+          paraSelect.push("Major");
+        }
+        }
+      
+      for(i=1;i<=loopITER;i++){
+        if(document.getElementById('file'+i)!=null){
+        //console.log(document.getElementById('file'+i).value);
+        //console.log(document.getElementById('chckbx'+i).checked);
+        fileid='file'+i;
+        //console.log(noDup.indexOf(fileid));
+        
+          if(document.getElementById('chckbx'+i).checked==true && noDup.includes(fileid)==false){
+            //console.log("halellujah");
+            noDup.push(fileid);
+            srno+=1;
+            //console.log(noDup.includes(fileid));
+            var table1 = document.getElementById("myTable1");
+            var row = table1.insertRow(srno);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            cell1.innerHTML = srno;
+            cell2.innerHTML = '<input type="hidden" name="file" value="'+document.getElementById('file'+i).value+'" id="file'+i+'">'+
+            '<input type="hidden" name="emam" value="'+document.getElementById('email'+i).value+'" id="email'+i+'"><input type="hidden" name="phom" value="'+document.getElementById('phone'+i).value+'" id="phone'+i+'">'+document.getElementById('file'+i).value;
+
+            
+
+            //cell2.innerHTML = document.getElementById('avgscr'+i).value;
+            cell3.innerHTML = paraSelect;
+            cell4.innerHTML = '<input type="checkbox" checked="checked" id="chckbx'+i+'" onchange="addResume(this.id,'+i+')">'+document.getElementById('file'+i).value;
+            //console.log('file'+i);
+            //console.log(document.getElementById('file'+i).value);
+
+
+
+          }
+
+      }
+      }
+
+    var x = document.getElementById("myTable").rows.length;
+    //console.log(document.getElementById("recal").disabled)
+    //console.log(document.getElementById("recal").disabled)
+    //console.log(document.getElementById("save").disabled)
+      //console.log(x);
+      if (x>2){
+        for(i=x-2;i>0;i--){
+          //console.log(i);
+          document.getElementById("myTable").deleteRow(i);  
+        }
+      }
+      
+  }
+  function toggleSaveGo(){
+    //console.log(document.getElementById('save').disabled)
+    //console.log(document.getElementById('recal').disabled)
+    
+        if(document.getElementById('wantMore').checked){
+      //console.log(document.getElementById('wantMore').checked)
+      document.getElementById('save').disabled=true;
+      document.getElementById("recal").disabled=false;
+    }
+    else{
+    //console.log(document.getElementById('wantMore').checked)
+    document.getElementById("recal").disabled=true;
+    document.getElementById("save").disabled=false;
+    }
+
+    //console.log(document.getElementById('save').disabled)
+    //console.log(document.getElementById('recal').disabled)
+    
+  }
+</script>
+
+
+
+<script type="text/javascript">
+  var diction_forFILE = {};
+  var diction_forEMAIL = {};
+  var diction_forPHONE = {};
+
+  function addResume(fname,unit) {
+    //console.log(fname);
+    //console.log(unit);
+    var fileID = 'file'+unit;
+    var emailID = 'email'+unit;
+    var phoneID = 'phone'+unit;
+    //console.log(fileID);
+    //console.log(document.getElementById(fileID));
+    var fileNAME = document.getElementById(fileID).value;
+    var emailNAME = document.getElementById(emailID).value;
+    var phoneNAME = document.getElementById(phoneID).value;
+    //console.log(fileNAME);
+    //console.log(typeof(fileNAME));
+    //console.log(typeof(fileID));
+    var temp = document.getElementById(fname).checked;
+    
+    if(temp){
+      diction_forFILE[fileID]=fileNAME;
+      diction_forEMAIL[emailID]=emailNAME;
+      diction_forPHONE[phoneID]=phoneNAME;
+
+      //console.log(diction_forFILE);
+      //console.log(diction_forEMAIL);
+      //console.log(diction_forPHONE);
+    //var node = document.createElement("LI");
+    //var textnode = document.createTextNode(fname);
+    //node.appendChild(textnode);
+    //document.getElementById("myList").appendChild(node);
+  }
+  else{
+    //console.log("hrrhhrhrr");
+    diction_forFILE[fileID]="NONE";
+    diction_forEMAIL[emailID]="NONE";
+    diction_forPHONE[phoneID]="NONE";
+    delete diction_forFILE.fileID;
+    delete diction_forFILE['fileID'];
+    delete diction_forEMAIL.fileID;
+    delete diction_forEMAIL['fileID'];
+    delete diction_forPHONE.fileID;
+    delete diction_forPHONE['fileID'];
+    //console.log(fileID);
+   // console.log(fileNAME);
+    //console.log(diction_forFILE);
+    //console.log(diction_forEMAIL);
+    //console.log(diction_forPHONE);
+    
+    var list = document.getElementById("myList");
+    //list.removeChild(list.lastChild);
+  }
+  var arr=[];
+  var arr1=[];
+  var arr2=[];
+  for (var key in diction_forFILE) {
+    if (diction_forFILE[key]!='NONE') {
+       //console.log(key + " -> " + diction[key]);
+        arr.push(diction_forFILE[key]);
+    }
+}
+  for (var key in diction_forEMAIL) {
+    if (diction_forEMAIL[key]!='NONE') {
+       //console.log(key + " -> " + diction[key]);
+        arr1.push(diction_forEMAIL[key]);
+    }
+}
+  for (var key in diction_forPHONE) {
+    if (diction_forPHONE[key]!='NONE') {
+       //console.log(key + " -> " + diction[key]);
+        arr2.push(diction_forPHONE[key]);
+    }
+}
+//console.log(arr)
+document.getElementById('myList').value=arr;
+document.getElementById('myList1').value=arr1;
+document.getElementById('myList2').value=arr2;
+
+}
+
+</script>
+
+
+<script type="text/javascript">
+  function save(){
+    var resumeNAMES = document.getElementById('myList').value;
+    var txtFile = "C:/Users/patel/Desktop/test.txt";
+    var file = new File(["resumeNAMES"],txtFile,{type: "text/plain",});
+    //file.open("w");
+    //file.write(resumeNAMES);
+    //file.close();
+  }
+</script>
+
+      
+    <div id="Contact"class="container-fluid">
+<div class="row ">
+   <footer class="footer-distributed">
+
+			<div  class="footer-left">
+
+				<h3>DataBytes<span>Analytics Pvt Ltd</span></h3>
+
+				<p class="footer-company-name">Databytes Analytics &copy;2017</p>
+			</div>
+
+			<div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+				<div >
+					<i class="fa fa-map-marker"></i>
+                    <p><span>DataBytes Analytics 
+Kolkata, West Bengal, India</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+                    
+                    <p>+919028495030</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">reach@data-bytes.in</a></p>
+                  
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				<div class="footer-icons">
+
+					<a href=https://www.linkedin.com/in/databytes/><i class="fa fa-linkedin"></i></a>
+				</div>
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter"></i></a>
+				</div>
+
+			</div>
+    </footer>   
+       </div>
+  </div>
+</body>
+</html>

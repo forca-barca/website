@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+     
+    <title>AI Hiring</title>
+    {% load staticfiles %}
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/common.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/style4.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/style5.css'%}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/demonew.css'%}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'personal/images/databytes.jpg'%}" type="image/gif" sizes="16x16">
+    <script data-brackets-id='2171' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/style6.css'%}"/>
+    
+<style>
+    
+    #ballMenuContainer {
+    position: relative;
+ 
+
+}
+
+
+@-webkit-keyframes pulse {
+    0% {
+      -webkit-transform: scale(1) rotate(0deg); 
+    }
+    50% {
+      -webkit-transform: scale(1.1) rotate(-5deg); 
+    }
+    100% {
+      -webkit-transform: scale(1) rotate(0deg); 
+    }
+}
+@-o-keyframes pulse {
+    0% {
+      -o-transform: scale(1) rotate(0deg); 
+    }
+    50% {
+      -o-transform: scale(1.1) rotate(-5deg); 
+    }
+    100% {
+      -o-transform: scale(1) rotate(0deg); 
+    }
+}
+@-moz-keyframes pulse {
+    0% {
+      -moz-transform: scale(1) rotate(0deg); 
+    }
+    50% {
+      -moz-transform: scale(1.1) rotate(-5deg); 
+    }
+    100% {
+      -moz-transform: scale(1) rotate(0deg); 
+    }
+}
+@keyframes pulse {
+    0% {
+      transform: scale(1) rotate(0deg); 
+    }
+    50% {
+      transform: scale(1.1) rotate(-5deg); 
+    }
+    100% {
+      transform: scale(1) rotate(0deg); 
+    }
+}
+
+@-webkit-keyframes bump {
+  0% {
+      top: 0;
+  }
+  5% {
+      top: 3px;
+  }
+  10% {
+      top:0;
+  }
+  100% {
+      top:0;
+  }
+}
+@-o-keyframes bump {
+  0% {
+      top: 0;
+  }
+  5% {
+      top: 3px;
+  }
+  10% {
+      top:0;
+  }
+  100% {
+      top:0;
+  }
+}
+@-moz-keyframes bump {
+  0% {
+      top: 0;
+  }
+  5% {
+      top: 3px;
+  }
+  10% {
+      top:0;
+  }
+  100% {
+      top:0;
+  }
+}
+@keyframes bump {
+  0% {
+      top: 0;
+  }
+  5% {
+      top: 3px;
+  }
+  10% {
+      top:0;
+  }
+  100% {
+      top:0;
+  }
+}
+
+.menuBall {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+}
+
+.ball {
+    position:absolute;
+    width:100%;
+    height:100%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px dashed #fff;
+    margin-top: 40px;
+    text-decoration: none;
+}
+
+.ball:hover {
+    -webkit-animation: pulse 1s ease 0s infinite normal;
+    -o-animation: pulse 1s ease 0s infinite normal;
+    -moz-animation: pulse 1s ease 0s infinite normal;
+    animation: pulse 1s ease 0s infinite normal;
+}
+
+.redball {
+    background-color: #d90e23;
+    -moz-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -o-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10,10,0,.5);
+  
+    background-image: -moz-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-moz-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-image: -webkit-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-webkit-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-image: -o-linear-gradient(0deg, rgba(0,0,0,.25) 50%, transparent 10%),-o-linear-gradient(rgba(0,0,0,.25) 50%, transparent 50%);
+    background-size:10px 10px;
+}
+
+.blueball {
+    -moz-box-shadow: 0 0 0 3px #d6385b, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow: 0 0 0 3px #d6385b, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -o-box-shadow: 0 0 0 3px #d6385b, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 3px #d6385b, 2px 1px 6px 4px rgba(10,10,0,.5);
+
+    background-image: -webkit-linear-gradient(35deg, #9f2e86 25%, transparent 25%, transparent 75%, #9f2e86 75%, #9f2e86), 
+    -webkit-linear-gradient(-35deg, #9f2e86 25%, transparent 25%, transparent 75%, #9f2e86 75%, #9f2e86);
+    background-image: -moz-linear-gradient(35deg, #9f2e86 25%, transparent 25%, transparent 75%, #9f2e86 75%, #9f2e86), 
+    -moz-linear-gradient(-35deg, #9f2e86 25%, transparent 25%, transparent 75%, #9f2e86 75%, #9f2e86);
+    background-size:20px 20px;  
+    background-color: #d6385b;
+}
+
+.yellowball {
+    background-color: #7968a8;
+    -moz-box-shadow: 0 0 0 3px #7968a8, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow: 0 0 0 3px #7968a8, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 3px #7968a8, 2px 1px 6px 4px rgba(10,10,0,.5);
+  
+    background-image: -webkit-linear-gradient(90deg, transparent 50%, rgba(99,138,190,1) 50%);
+    background-image: -moz-linear-gradient(90deg, transparent 50%, rgba(99,138,190,1) 50%);
+    background-size: 8px 8px;
+}
+
+.greenball {
+    -moz-box-shadow: 0 0 0 3px #65b37a, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow: 0 0 0 3px #65b37a, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 3px #65b37a, 2px 1px 6px 4px rgba(10,10,0,.5);
+
+    background:
+        -webkit-radial-gradient(#e8b15e 4px, transparent 6px);
+    background:
+        -moz-radial-gradient(#e8b15e 4px, transparent 6px);
+    background-size: 20px 20px;
+  
+    background-image: -webkit-radial-gradient(#e8b15e 15%, transparent 16%),
+        -webkit-radial-gradient(#e8b15e 15%, transparent 16%);
+    background-image: -moz-radial-gradient(#e8b15e 15%, transparent 16%),
+        -moz-radial-gradient(#e8b15e 15%, transparent 16%);
+    background-color: #65b37a;
+    background-size:30px 30px;
+    background-position: 0 0, 20px 20px;
+}
+
+.menuText {
+    font-family: 'IdolwildRegular' , Verdana, Helvetica, Sans-Serif;
+    font-size: larger;
+    color: #ffffff;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    top: 20%;
+}
+
+#menuBall1 {
+  -webkit-animation: bump 6s linear 0s infinite normal;
+}
+#menuBall2 {
+  -webkit-animation: bump 6s linear .5s infinite normal;
+}
+#menuBall3 {
+  -webkit-animation: bump 6s linear 1s infinite normal;
+}
+#menuBall4 {
+  -webkit-animation: bump 6s linear 1.5s infinite normal;
+}
+
+#menuBall1 {
+  -moz-animation: bump 6s linear 0s infinite normal;
+}
+#menuBall2 {
+  -moz-animation: bump 6s linear .5s infinite normal;
+}
+#menuBall3 {
+  -moz-animation: bump 6s linear 1s infinite normal;
+}
+#menuBall4 {
+  -moz-animation: bump 6s linear 1.5s infinite normal;
+}
+
+#menuBall1 {
+  -o-animation: bump 6s linear 0s infinite normal;
+}
+#menuBall2 {
+  -o-animation: bump 6s linear .5s infinite normal;
+}
+#menuBall3 {
+  -o-animation: bump 6s linear 1s infinite normal;
+}
+#menuBall4 {
+  -o-animation: bump 6s linear 1.5s infinite normal;
+}
+
+#menuBall1 {
+  animation: bump 6s linear 0s infinite normal;
+}
+#menuBall2 {
+  animation: bump 6s linear .5s infinite normal;
+}
+#menuBall3 {
+  animation: bump 6s linear 1s infinite normal;
+}
+#menuBall4 {
+  animation: bump 6s linear 1.5s infinite normal;
+}
+
+
+div#partyInfo {
+    position: absolute;
+    bottom: 30%;
+    top: 30%;
+    left: 20%;
+    right: 20%;
+    margin: 5px;
+    padding: 8px;
+    z-index: 2000;
+    text-shadow: -1px -1px #65b37a;
+    font-family: 'IdolwildRegular' , Verdana, Helvetica, Sans-Serif;
+    font-size: 2.5em;
+    color: #FFFFFF;
+    border-radius: 10px;
+    border: 2px dashed #fff;
+    background-color: #d90e23;
+    -moz-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -webkit-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    -o-box-shadow: 0 0 0 3px #d90e23, 2px 1px 4px 4px rgba(10,10,0,.5);
+    box-shadow: 0 0 0 3px #d90e23, 2px 1px 6px 4px rgba(10,10,0,.5);
+}
+
+#darkMe {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width: 100%;
+    background: rgba(0,0,0,0.65);
+    z-index: 1000;
+    -webkit-filter: blur(3px);
+}
+
+#darkMe.hideMe, #partyInfo.hideMe {
+    visibility: hidden;
+}
+
+#darkMe.showMe, #partyInfo.showMe{
+    visibility:visible;
+}
+
+    
+    
+    </style>
+    
+</head>
+    <!---- navigation bar ------>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <center>
+            <a href="/AiHiring/index.html"><img src="{% static 'personal/images/databytes.jpg'%}" class="brandpic" height="40"></a>
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </center>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/AiHiring/index.html" >Home</a></li>
+                <li><a href="/AiHiring/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!------- vedio my dev -------->
+
+    
+<!---------Container qual dev section--------------->
+     <div id="particles">
+       <canvas class="pg-canvas" width="560" height="662" style="display: block;"></canvas>
+    </div>
+<!------------------------------carousel section----------------------->
+<div class="row">
+<div class=col-sm-12>    
+<div id="myCarousel" class="carousel slide" data-ride="carousel" >
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+        <img src="{% static 'personal/images/databytes/9.jpg'%}" class="img-responsive"  alt="1">
+        <div class="carousel-caption">
+            <h2 style="margin-bottom: 38%"> Welcome to the future of Recruitment</h2>
+        </div>
+    </div>
+
+    <div class="item">
+    <img src="{% static 'personal/images/databytes/2.jpg'%}" class="img-responsive"alt="2">
+        <div class="carousel-caption">
+            <h2 style="margin-bottom: 38%">Machine will analyze human skills</h2>
+        </div>
+        
+    </div>
+
+    <div class="item">
+        <img src="{% static 'personal/images/databytes/3.jpg'%}"class="img-responsive" alt="3">
+        <div class="carousel-caption">
+            <h2 style="margin-bottom: 38%">Hiring of right people with respect to Company growth</h2>
+        </div>
+      </div>
+    <div class="item">
+        <img src="{% static 'personal/images/databytes/4.jpeg'%}"class="img-responsive" alt="4">
+        <div class="carousel-caption">
+            <h2 style="margin-bottom: 38%">Go below and start using our services</h2>
+        </div>
+      </div>    
+    
+  </div>
+    
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    </div>
+    </div>
+<!------------------first row---------------------------->    
+   
+    <div id="WorkingOn" class="container-fluid text-center">
+<center><h3 class="firstheading">Qualities of product</h3></center>
+<div class="row">
+<div data-scroll="toggle(.fromRightIn, .fromRightOut)"class="col-sm-4">
+    <ul class="ch-grid">
+    <center><h3 class="fourthheading">Match what you need</h3></center>
+    <li>
+     <div class="ch-item6 ch-img-1">				
+     <div class="ch-info6-wrap6">
+     <div class="ch-info6">
+     <div class="ch-info6-front6 ch-img-1"></div>
+    <div class="ch-info6-back6">
+     <h3>Put your requirments at one go</h3>
+      <p>Simple , fast , accurate is what we say </p>
+      </div>	
+       </div>
+       </div>
+        </div>
+        </li>
+    </ul>
+    </div>
+    <div data-scroll="toggle(.fromRightIn, .fromRightOut)" class="col-sm-4">
+    <ul class="ch-grid">
+    <center><h3 class="fourthheading">AI Engine</h3></center>
+    <li>
+     <div class="ch-item6 ch-img-2">				
+     <div class="ch-info6-wrap6">
+     <div class="ch-info6">
+     <div class="ch-info6-front6 ch-img-2"></div>
+    <div class="ch-info6-back6">
+     <h3>AI matching Engine and Data mining</h3>
+      <p>work load reducer , parse tons of resume at once</p>
+      </div>	
+       </div>
+       </div>
+        </div>
+        </li>
+    </ul>
+    </div>
+    <div data-scroll="toggle(.fromRightIn, .fromRightOut)"class="col-sm-4">
+    <ul class="ch-grid">
+    <center><h3 class="fourthheading">Resume Visualization</h3></center>
+    <li>
+     <div class="ch-item6 ch-img-3">				
+     <div class="ch-info6-wrap6">
+     <div class="ch-info6">
+     <div class="ch-info6-front6 ch-img-3"></div>
+    <div class="ch-info6-back6">
+     <h3>Our AI see insights of resumes</h3>
+      <p>Visualize and summarize the resume</p>
+      </div>	
+       </div>
+       </div>
+        </div>
+        </li>
+    </ul>
+    </div>
+    </div>    
+    </div>
+<!---------------------- second row-------------->        
+        <center> <h3  class="firstheading" >How to Use</h3></center>
+        <div class="row">
+             <div class="col-sm-4">
+                  
+                   <center><h3 class="fourthheading">Step 1: Upload Resumes</h3></center>
+                 <ul class="ch-grid">
+                 <li>
+						<div data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="ch-item4 ch-img-144">				
+							<div class="ch-info4-wrap4">
+								<div class="ch-info4">
+									<div class="ch-info4-front ch-img-144"></div>
+									<div class="ch-info4-back4">
+										<h3>follow this link</h3>
+										<p>multiple resumes,<br>with any format,<br>how much size ? let's parse</p>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+                     </ul>
+             </div>
+             <div class="col-sm-4">
+                  <center><h3 class="sxithheading">Step 2: Specify Details</h3></center>
+                 <ul class="ch-grid">
+                 <li>
+						<div data-scroll="toggle(.scaleUpIn, .scaleUpOut)"class="ch-item4 ch-img-145">				
+							<div class="ch-info4-wrap4">
+								<div class="ch-info4">
+									<div class="ch-info4-front ch-img-145"></div>
+									<div class="ch-info4-back4">
+										<h3>Place your job description</h3>
+										<p>location,<br>job roles,<br>skills etc</p>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+                     </ul>
+             </div>
+             <div class="col-sm-4">
+                 <center><h3 class="sxithheading">Step 3: Results</h3></center>
+                 <ul class="ch-grid">
+                 <li>
+						<div data-scroll="toggle(.scaleUpIn, .scaleUpOut)" class="ch-item4 ch-img-146">				
+							<div class="ch-info4-wrap4">
+								<div class="ch-info4">
+									<div class="ch-info4-front ch-img-146"></div>
+									<div class="ch-info4-back4">
+										<h3>Tabulated Results with summary</h3>
+										<p>Matched text , summary , data visualization</p>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</li>
+                     </ul>
+             </div>
+        </div>
+    </div>
+<!-------------------- end of first row------------------->    
+    <!------------container about dev skill sec----------->
+    
+
+<!----------- Working on------->
+<div class="container-fluid">
+   <div class="row">
+   <div id="automata writing" class="container-fluid newpadding1 newmargin"> 
+
+    <div class="row">
+     <div  class="col-sm-12">      
+        <center>
+         <div class="col-sm-12 paragraphstyling">
+          <span class="newpara sixthheading" ></span>    
+          
+        </div>
+            
+       <div id="ballMenuContainer">
+<div id="menuBall1" class="menuBall">
+  <a href="examples.html" class="ball blueball">
+    <div class="menuText">
+        Free Version
+    </div>
+  </a>
+</div>
+
+<div id="menuBall2" class="menuBall">
+	<a href="examples.html" class="ball redball">
+    <div class="menuText">
+        Paid Version
+    </div>
+  </a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<p>NOTE : This is just the basic version. So both Free Version and Paid Version have the same functionalities.</p>
+</center>
+</div>
+
+
+</div>        
+       </div>
+       </div>
+</div>    
+<!-----------------------------------------latest news section------------------------------->
+
+    
+<!---------------------------------------------end of latest news---------------------------->    
+<div id="Contact"class="container-fluid">
+<div class="row ">
+   <footer class="footer-distributed">
+
+			<div  class="footer-left">
+
+				<h3>DataBytes<span>Analytics Pvt Ltd</span></h3>
+
+				<p class="footer-company-name">Databytes Analytics &copy;2017</p>
+			</div>
+
+			<div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+				<div >
+					<i class="fa fa-map-marker"></i>
+                    <p><span>DataBytes Analytics 
+Kolkata, West Bengal, India</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+            
+                    <p>+919028495030</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">reach@data-bytes.in</a></p>
+                  
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				<div class="footer-icons">
+
+					<a href=https://www.linkedin.com/in/databytes/><i class="fa fa-linkedin"></i></a>
+				</div>
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter"></i></a>
+				</div>
+
+			</div>
+    </footer>   
+       </div>
+
+
+</body>
+<script src="{% static 'personal/js/jquery-3.2.0.min.js'%}"></script>
+<script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+<!---------------------------news ticker------------------------------>
+<!---------------automatic typing -------------------------------->
+    <script src="{% static 'personal/js/typed.min.js'%}"></script>
+    <script>
+	$(function(){
+		$(".newpara").typed({
+			strings: ["We are introducing to new era for  hiring professionals.","Where machines will analyze human capabilites.",
+                     "Can visualize each candidate resume." ,"growth of your company with respect to resume.","And can help us to solve complex problems of hiring.","Companies investment in right direction.","For every buisness world TIME IS MONEY well said"],
+			typeSpeed: 0,
+            loop:true
+		});
+	});
+</script>        
+
+<!--------------------------particle backgroudn-------------------------->
+<script src="{% static 'personal/js/jquery.particleground.min.js'%}"/></script>
+    <script type="text/javascript">
+        
+         $('#particles').particleground({
+        dotColor: 'dodgerblue',
+        lineColor: 'lightgreen',
+        parallaxMultiplier:50,
+             particleRadius:6,
+             minSpeedX:0.1,
+
+ maxSpeedX:0.7,
+
+ minSpeedY: 0.1,
+
+ maxSpeedY:0.7,
+             proximity:100
+             
+    });
+    </script>
+</html>
+

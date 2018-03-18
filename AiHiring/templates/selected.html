@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  {% load staticfiles %}
+  <title>Ai Based Hiring</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/bootstrap.css'%}">
+    <link type="text/css" rel="stylesheet" href="{% static 'personal/newcss/modstyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/common.css'%}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/multiple-select.css'%}" />
+
+    <script src="{% static 'personal/js/jquery-3.2.0.min.js'%}"></script>
+    <script src="{% static 'personal/js/multiple-select.js'%}"></script>
+    <script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+    <link rel="icon" href="{% static 'personal/images/databytes.jpg'%}" type="image/gif" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="{% static 'personal/css/footer-distributed-with-address-and-phones.css'%}"/>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<nav class="navbar navbar-default navbar-fixed-top ">
+    <div class="container-fluid" >
+        <div class="navbar-header">
+            <center>
+            <a href="/AiHiring/index.html"><img src="{% static 'personal/images/databytes.jpg'%}" class="brandpic" height="40"></a>
+            
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            </center>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/AiHiring/index.html" >Home</a></li>
+                <li><a href="/AiHiring/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+<div class="container-fluid" style="margin-top: 30px">
+    <center>
+    <h1 class="firstheading">Informations Sections</h1>
+    </center>
+    </div>        
+     <div class="container-fluid" style="margin-top: 80px">
+<div id="content">   
+<div class="container-fluid">
+<div class="col-sm-12">
+<div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px"><h1 class="thirdheading" style="color: white; opacity: 1.0 ; font-size: 30px; "><center>Contact Information</center></h1>
+<center><p class="secheading" style="color: white; opacity: 1.0; font-size: 20px"><i> {{file}}</i></center></div>
+    
+    </div>    
+<div class='table-responsive'>
+    
+<table class="table table-hover table-striped" id="myTable">
+  <thead>
+    <tr>
+          <th scope="col" id="score" style="font-family:sans-serif; color:yellowgreen; font-size: 30px "></th>
+          <!--<th scope="col" id="Info">Percentage Matched</th>-->
+        </tr>
+  </thead>
+  <tbody>
+    <tr >
+        <th scope="col"  id="" style="font-family:sans-serif; color: dodgerblue; font-size: 15px ">Email Id : <span style="color:crimson">{{emam}}</span></th>
+        <!--<th scope="col" class="mycell">{{ locs }}</th>-->
+      </tr>
+      <tr >
+          <th scope="col"  id="" style="font-family:sans-serif; color:dodgerblue; font-size: 15px ">Contact No. : <span style="color: crimson">{{phom}}</span></th>
+        <!--<th scope="col" class="mycell">{{ locs }}</th>-->
+      </tr>
+
+
+  </tbody>
+
+</table>
+         
+    </div>
+    
+    <div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px; margin-top:10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px">
+    
+    </div> 
+    </div> 
+    
+          </div>
+    
+          </div>  
+<!--     
+     <p>{{ locs }}</p>
+     <p>{{ locm }}</p>
+     <p>{{ skis }}</p>
+     <p>{{ skim }}</p>
+     <p>{{ unis }}</p>
+     <p>{{ unim }}</p>
+     <p>{{ coms }}</p>
+     <p>{{ comm }}</p>
+     <p>{{ quas }}</p>
+     <p>{{ quam }}</p>
+     <p>{{ avgs }}</p>
+-->
+
+
+
+<div class="container-fluid" style="margin-top: 80px">
+<div id="content">   
+<div class="col-sm-12">
+<div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px"><h1 class="thirdheading" style="color: white; opacity: 1.0 ; font-size: 30px; "><center>Resume Summary</center></h1><center><p class="secheading" style="color: white; opacity: 1.0; font-size: 20px"><i> {{file}} </i></p> </center></div>
+    
+    </div>    
+<div class='table-responsive'>
+    
+<table class="table table-hover table-striped" id="myTable">
+  <thead>
+    <tr>
+      <th scope="col" id="score"style="font-family:sans-serif; color: yellowgreen; font-size: 30px "></th>
+      <!--<th scope="col" id="Info">Percentage Matched</th>-->
+          
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="locmROW" style="font-family:sans-serif;  font-size: 15px ">
+      <th scope="col"  id="locm" style="font-family:sans-serif; color: crimson; font-size: 15px "></th>    
+      
+      
+      <!--<th scope="col" class="mycell">{{ locs }}</th>-->
+    </tr>
+      <tr id="skimROW" style="font-family:sans-serif;  font-size: 15px ">
+      <th scope="col"  id="skim" style="font-family:sans-serif; color: crimson; font-size: 15px "></th>
+      <!--<th scope="col" class="mycell">{{ skis }}</th>-->
+    </tr>
+<tr id="commROW" style="font-family:sans-serif;  font-size: 15px ">
+      <th scope="col"  id="comm" style="font-family:sans-serif; color: crimson; font-size: 15px "></th>
+      <!--<th scope="col" class="mycell">{{ coms }}</th>-->
+    </tr>
+    <tr id="unimROW" style="font-family:sans-serif;  font-size: 15px ">
+      <th scope="col"  id="unim" style="font-family:sans-serif; color: crimson; font-size: 15px "></th>
+      <!--<th scope="col" class="mycell">{{ unis }}</th>-->
+    </tr>  
+<tr id="quamROW" style="font-family:sans-serif;  font-size: 15px ">
+      <th scope="col"s id="quam" style="font-family:sans-serif; color: crimson; font-size: 15px "></th>
+      <!--<th scope="col" class="mycell">{{ quas }}</th>-->
+    </tr>
+  </tbody>
+
+</table>
+         
+    </div>
+    
+    <div class="panel panel-default" style="box-shadow: 0 0 10px black; border-color: lightcoral; border-radius: 10px; margin-top:10px">
+    <div class="panel-heading" style="padding: 12px ; background-color: lightcoral; border-color: lightcoral; border-radius: 10px">
+    
+    </div> 
+    </div> 
+    
+          </div>
+    
+          </div>      
+
+    </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  {% load extra %}
+  var locm="{{locm}}";
+  var lenLOCM = locm.length;
+  var locmTemp = "";
+  for(i=0;i<lenLOCM;i++){
+    if (locm.charAt(i) == '[' || locm.charAt(i) == ']'){
+  }
+  else{
+    locmTemp+=locm.charAt(i);
+  }
+}
+if({{para}}[0]==1){
+  if(locmTemp.length>0){
+  document.getElementById("locm").innerHTML = "<span style ='color:dodgerblue'>Location : </span>" +locmTemp;
+}
+else{
+  document.getElementById("locmROW").style.display="none";
+}
+}
+
+else{
+  document.getElementById("locmROW").style.display="none";
+}
+  console.log(locm);
+
+  var skim="{{skim}}";
+  var lenSKIM = skim.length;
+  var skimTemp = "";
+  for(i=0;i<lenSKIM;i++){
+    if (skim.charAt(i) == '[' || skim.charAt(i) == ']'){
+  }
+  else{
+    skimTemp+=skim.charAt(i);
+  }
+}
+if({{para}}[1]==1){
+  if(skimTemp.length>0){
+  document.getElementById("skim").innerHTML =  "<span style ='color:dodgerblue'>Skill : </span>" +skimTemp;
+}
+else{
+  document.getElementById("skimROW").style.display="none";
+}
+}
+else{
+  document.getElementById("skimROW").style.display="none";
+}
+
+  var comm="{{comm}}";
+  var lenCOMM = comm.length;
+  var commTemp = "";
+  for(i=0;i<lenCOMM;i++){
+    if (comm.charAt(i) == '[' || comm.charAt(i) == ']'){
+  }
+  else{
+    commTemp+=comm.charAt(i);
+  }
+}
+if({{para}}[2]==1){
+  if(commTemp.length>0){
+  document.getElementById("comm").innerHTML =  "<span style ='color:dodgerblue'>Company : </span>" +commTemp;
+}
+else{
+  document.getElementById("commROW").style.display="none";
+}
+}
+else{
+  document.getElementById("commROW").style.display="none";
+}
+
+
+
+  var unim="{{unim}}";
+  var lenUNIM = unim.length;
+  var unimTemp = "";
+  for(i=0;i<lenUNIM;i++){
+    if (unim.charAt(i) == '[' || unim.charAt(i) == ']'){
+  }
+  else{
+    unimTemp+=unim.charAt(i);
+  }
+}
+if({{para}}[3]==1){
+  if(unimTemp.length>0){
+  document.getElementById("unim").innerHTML =  "<span style ='color:dodgerblue'>University : </span>" +unimTemp;
+}
+else{
+  document.getElementById("unimROW").style.display="none";
+}
+}
+else{
+  document.getElementById("unimROW").style.display="none";
+}
+
+
+  var quam="{{quam}}";
+  var lenQUAM = quam.length;
+  var quamTemp = "";
+  for(i=0;i<lenQUAM;i++){
+    if (quam.charAt(i) == '[' || quam.charAt(i) == ']' || quam.charAt(i) == '(' || quam.charAt(i) == ')'){
+  }
+  else{
+    quamTemp+=quam.charAt(i);
+  }
+}
+if({{para}}[4]==1 && {{para}}[5]==1){
+if(quamTemp.length>0){
+  document.getElementById("quam").innerHTML = "<span style ='color:dodgerblue'>Qualification : </span>" + quamTemp;
+}
+else{
+  document.getElementById("quamROW").style.display="none";
+}
+}
+else{
+  document.getElementById("quamROW").style.display="none";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+   <div id="Contact"class="container-fluid">
+<div class="row ">
+   <footer class="footer-distributed">
+
+			<div  class="footer-left">
+
+				<h3>DataBytes<span>Analytics Pvt Ltd</span></h3>
+
+				<p class="footer-company-name">Databytes Analytics &copy;2017</p>
+			</div>
+
+			<div data-scroll="toggle(.fromLeftIn, .fromLeftOut)"class="footer-center">
+
+				<div >
+					<i class="fa fa-map-marker"></i>
+                    <p><span>DataBytes Analytics 
+Kolkata, West Bengal, India</span></p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+    
+                    <p>+919028495030</p>
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">reach@data-bytes.in</a></p>
+                  
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<div class="footer-icons">
+
+					<a href=https://www.facebook.com/DataBytesAnalytics/><i class="fa fa-facebook"></i></a>
+				</div>
+
+			
+         
+       
+          <div>
+
+				<div class="footer-icons">
+
+					<a href=https://www.linkedin.com/in/databytes/><i class="fa fa-linkedin"></i></a>
+				</div>
+
+		
+                </div>
+<div>
+				<div class="footer-icons">
+
+					<a href=https://twitter.com/databytes1><i class="fa fa-twitter"></i></a>
+				</div>
+
+			</div>
+    </footer>   
+       </div>
+</body>
+<script src="{% static 'personal/js/jquery-3.2.0.min.js'%}"></script>
+<script src="{% static 'personal/js/newbootstrap.min.js'%}"></script>
+
+</html>
